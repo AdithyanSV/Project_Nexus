@@ -1,0 +1,209 @@
+.{
+    margin: 0;
+    padding:0 ; 
+    box-sizing: border-box;
+    /* font-family:arial ; */
+ }
+body
+{
+    display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background-color: black;
+     color: white;
+}
+.container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    box-shadow: -2px 10px 30px  rgba(168, 155, 155, 0.5);
+    height: 600px;
+    width: 800px;
+    background-color:transparent;
+    border-radius: 8px;
+    
+}
+.form-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    height: 600px;
+    width: 800px;
+    background-color: black;
+    padding-left: 50px;
+    font-family: arial;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+.paragraph
+{
+    display: block;
+    align-items: left;
+    padding-right: 5em;
+    color: rgb(145, 140, 140);
+}
+.boxes1
+{
+    margin-right: 50px;
+    margin-top: 8px;
+    margin-bottom: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    font-stretch:ultra-expanded;
+    font-size:small;
+    font-weight: bold;
+    background-color: rgb(6, 6, 6);
+    color: white;
+    height: 40px;
+    border: 1px solid rgb(51, 46, 46);
+    border-radius: 3px;
+    width: 298px;
+            /* border-color: rgb(62, 59, 59); */
+    box-shadow: inset 0 0 5px 5px rgba(49, 46, 46, 0.5);
+}
+/* Style the checkbox container */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 50px;
+    padding-left: 2em;
+    cursor: pointer;
+    font-size: 15px;
+    color: rgb(125, 120, 120);
+  }
+  
+  /* Hide the default checkbox input */
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Style the custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border-radius: 2px;
+    background-color: #090808;
+    border: 2px solid #ccc;
+  }
+  /* When the checkbox is checked, add a black background */
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: #090a0b;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when the checkbox is checked */
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .eye
+  {
+    position: absolute;
+    right: 50%;
+    top: 51%;
+    left: 44%;
+    
+    transform: translateY(50%);
+    
+  }
+.login
+{
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1em;
+    font-stretch:ultra-expanded;
+    font-size:small;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    height: 40px;
+    border: 1px solid rgb(51, 46, 46);
+    border-radius: 3px;
+    width: 299px;
+    /* border-color: rgb(62, 59, 59); */
+    box-shadow: inset 0 0 5px 5px rgba(49, 46, 46, 0.5);
+    cursor: pointer;
+}
+.text2
+{
+    margin-top: 3px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    padding-right: 10em;
+    padding-left: 3em;
+    color: rgb(128, 124, 124);
+    font-size: 13.5px;
+    letter-spacing: 0.5px;
+}
+/* .forgot-password
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+} */
+.sign
+{
+    text-decoration: none;
+    font-size: 13.5px;
+    padding-left: 0.5em;
+    color: rgb(70, 69, 171);
+}
+ .fpass 
+{
+    color: rgb(70, 69, 171);
+    text-decoration: none;
+    font-size: 13.5px;
+    padding-left: 6em;
+} 
+.nexuscon
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    height: 600px;
+    width: 700px;
+    background-color: blueviolet;
+    font-family: arial;
+    font-weight: bolder;
+    font-size: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
