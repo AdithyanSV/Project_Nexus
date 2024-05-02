@@ -58,6 +58,7 @@ body
 }
 .forgot
 {
+  height: 450px;
   /* display: flex; */
   display: none;
 }
@@ -174,6 +175,7 @@ body
 .login
 {
   display: flex;
+  flex-direction: column;
   justify-content: left;
 }
 .loginBtn{
@@ -204,6 +206,9 @@ body
 .optionLink{
     text-decoration: none;
     color: rgb(70, 69, 171);
+}
+.goback{
+  margin-top: 1svh;
 }
 .nexuscon
 {
