@@ -85,27 +85,29 @@
             </form>
 
             <!-- Forgot Screen -->
-            <form action="forgot.html" class="form forgot">
+            <form class="form forgot">
                 <div class="title">
                     <h1 class="heading">Forgot Something?</h1>
                     <p class="details">No worries,we will send you a password reset link.</p>
                 </div>
                 <div class="inField mailIn">
                     <p class="text">Email</p>
-                    <input class="inBox" type="email" placeholder="Eg: xyz@email.com">
+                    <input id="verifyMail" class="inBox" type="email" placeholder="Eg: xyz@email.com">
                 </div>
                 <div class="login">
-                    <button class="loginBtn" type="submit">Reset Password</button>
+                    <button id="verifyMailBtn" class="loginBtn" type="submit" onclick="validateEmail()">Reset Password</button>
                     <a href="#" class="details optionLink goback" id="goBack">Go Back</a>
                 </div>
             </form>
 
             <!-- We got you Screen -->
             <form class="form goBack">
-                <label ><h1 class="heading got">We got you...</h1></label>
-                <p class="text">An email with the password reset will be sent to you soon.</p>
-                <div>
-                    <button class="goback1">Go Back</button>
+                <div class="title">
+                    <h1 class="heading">We got you...</h1>
+                    <p class="details">If you have an active account, an email with the password reset will be sent to you soon.</p>
+                </div>
+                <div class="login">
+                    <button class="loginBtn" type="submit" id="goBackBtn">Go Back</button>
                 </div>
             </form>
         </div>
