@@ -4,6 +4,7 @@
 
     <title>NEXUS-Dash</title>
     <link rel="stylesheet" href="student.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -28,6 +29,16 @@
                 <h3>Attendance</h3>
                 <a href="#" class="more"> more ></a>
             </div>
+            <div class="content">
+                <div class="radialChart" id="radialChart1"></div>
+                <div id="verticalChart1" class="vBarChart"></div>
+                <div id="verticalChart2" class="vBarChart"></div>
+                <div id="verticalChart3" class="vBarChart"></div>
+                <div id="verticalChart4" class="vBarChart"></div>
+                <div id="verticalChart5" class="vBarChart"></div>
+                <div id="verticalChart6" class="vBarChart"></div>
+                <div id="verticalChart7" class="vBarChart"></div>
+            </div>
         </div>
         <div class="tile rspan2">
             <div class="title">
@@ -40,6 +51,7 @@
                 <h3>Marks</h3>
                 <a href="#" class="more"> more ></a>
             </div>
+            <div class="radialChart" id="radialChart2"></div>
         </div>
         <div class="tile cspan2">
             <div class="title">
@@ -48,5 +60,6 @@
             </div>
         </div>
     </div>
+    <script src="student.js"></script>
 </body>
 </html>
