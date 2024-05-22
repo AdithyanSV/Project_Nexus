@@ -59,16 +59,16 @@ function RadialChart(currentValue, maxValue, location) {
     // Text for the current value
     svg.append("text")
         .attr("text-anchor", "middle")
-        .attr("dy", "-0.1em")
+        .attr("dy", ".21em")
         .attr("class", "current-value")
-        .style("font-size", "48px")
+        .style("font-size", "75px")
         .style("fill", "white")
         .text(currentValue);
 
     // Text for the maximum value
     svg.append("text")
         .attr("text-anchor", "middle")
-        .attr("dy", "1.5em")
+        .attr("dy", "3em")
         .attr("class", "max-value")
         .style("font-size", "18px")
         .style("fill", "white")
@@ -129,30 +129,31 @@ function verticalBarChart(currentValue, maxValue, subject, location) {
 
     // Add current value text
     chartGroup.append("text")
-        .attr("x", innerWidth / 2 - 30)
-        .attr("y", 13)
+        .attr("x", innerWidth / 2 - 25)
+        .attr("y", 15)
         .attr("text-anchor", "middle")
         .attr("class", "current-value")
-        .style("font-size", "11px")
+        .style("font-size", "14px")
         .style("fill", "white")
-        .attr("transform", `rotate(-90, ${innerWidth / 2 - 30}, ${13})`)
+        .attr("transform", `rotate(-90, ${innerWidth / 2 - 25}, ${15})`)
         .text(`${((currentValue / maxValue) * 100).toFixed(0)}%`);
 
     // Add label text
     chartGroup.append("text")
-        .attr("x", innerWidth / 2 - 30)
+        .attr("x", innerWidth / 2 - 25)
         .attr("y", innerHeight - 15)
         .attr("text-anchor", "middle")
         .attr("class", "label")
-        .style("font-size", "10px")
+        .style("font-size", "14px")
         .style("font-align", "right")
         .style("fill", "white")
-        .attr("transform", `rotate(-90, ${innerWidth / 2 - 30}, ${innerHeight - 15})`)
+        .attr("transform", `rotate(-90, ${innerWidth / 2 - 25}, ${innerHeight - 15})`)
         .text(subject);
 }
 
 
 function horizontalBarChart(currentValue, maxValue, subject, location) {
+
     // Set up the SVG canvas dimensions
     const container = d3.select(location);
     const width = container.node().clientWidth;
@@ -174,23 +175,23 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
     const gradient = svg.append("defs")
         .append("linearGradient")
         .attr("id", "barGradient")
-        .attr("x1", "0%")
+        .attr("x1", "100%")
         .attr("y1", "0%")
         .attr("x2", "0%")
-        .attr("y2", "100%");
+        .attr("y2", "0%");  // Right to left
 
     gradient.append("stop")
         .attr("offset", "0%")
-        .attr("stop-color", "#6A71E0");
+        .attr("stop-color", "#FFAEFF");
 
     gradient.append("stop")
         .attr("offset", "100%")
-        .attr("stop-color", "#FFAEFF");
+        .attr("stop-color", "#6A71E0");
 
     // Create the background bar
     chartGroup.append("rect")
         .attr("x", 0)
-        .attr("y", innerHeight / 2 - 2)
+        .attr("y", innerHeight / 2 - 5)
         .attr("width", innerWidth)
         .attr("height", 10)
         .attr("fill", "#333");
@@ -198,16 +199,17 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
     // Create the progress bar
     chartGroup.append("rect")
         .attr("x", 0)
-        .attr("y", innerHeight / 2 - 2)
+        .attr("y", innerHeight / 2 - 5)
         .attr("width", innerWidth * (currentValue / maxValue))
         .attr("height", 10)
         .attr("fill", "url(#barGradient)");
 
     // Add current value text at the end of the progress bar
+    // Add current value text at the rightmost side
     chartGroup.append("text")
-        .attr("x", 210)  // Position right next to the progress bar
-        .attr("y", innerHeight / 2 - 15)  // Center vertically
-        .attr("text-anchor", "start")
+        .attr("x", innerWidth)  // Fixed at the rightmost side
+        .attr("y", innerHeight / 2 - 10)  // Center vertically
+        .attr("text-anchor", "end")  // Align text to the end (right)
         .attr("class", "current-value")
         .style("font-size", "14px")
         .style("fill", "white")
@@ -215,13 +217,12 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
 
     // Add label text to the left of the progress bar
     chartGroup.append("text")
-        .attr("x", margin.left / 2 + 15)  // Position to the left of the progress bar
-        .attr("y", innerHeight / 2 - 15)  // Center vertically
-        .attr("text-anchor", "middle")
+        .attr("x", 0)  // Position to the left of the progress bar
+        .attr("y", innerHeight / 2 - 10)  // Center vertically
+        .attr("text-anchor", "start")
         .attr("class", "label")
         .style("font-size", "14px")
         .style("fill", "white")
-        .attr("transform", `rotate(0, ${margin.left / 2 + 15}, ${innerHeight / 2 + 5})`)
         .text(subject);
 }
 
