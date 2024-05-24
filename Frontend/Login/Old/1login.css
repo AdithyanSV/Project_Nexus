@@ -1,4 +1,4 @@
-.{
+*{
     margin: 0;
     padding:0 ; 
     box-sizing: border-box;
@@ -6,39 +6,63 @@
  }
 body
 {
-    display: flex;
-     justify-content: center;
-     align-items: center;
-     min-height: 100vh;
-     background-color: black;
-     color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  background-color: black;
+  color: white;
 }
 .container
 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    box-shadow: -2px 10px 30px  rgba(168, 155, 155, 0.5);
-    height: 600px;
-    width: 800px;
-    background-color:transparent;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  box-shadow: -2px 10px 30px  rgba(168, 155, 155, 0.5);
+  height: 600px;
+  width: 800px;
+  background-color:transparent;
+  border-radius: 8px;
     
 }
-.form-container
+.subcontainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  width: 400px;
+  background-color: black;
+  font-family: arial;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: space-evenly;
+  height: 520px;
+  width: 320px;
+}
+.signin
 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    height: 600px;
-    width: 800px;
-    background-color: black;
-    padding-left: 50px;
-    font-family: arial;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
+  /* display: flex; */
+  /* display: none; */
+}
+.register
+{
+  /* display: flex; */
+  display: none;
+}
+.forgot
+{
+  /* display: flex; */
+  display: none;
+}
+.goBack{
+  /* display: flex; */
+  display: none;
 }
 .paragraph
 {
@@ -47,7 +71,7 @@ body
     padding-right: 5em;
     color: rgb(145, 140, 140);
 }
-.boxes1
+.inBox
 {
     margin-right: 50px;
     margin-top: 8px;
@@ -194,16 +218,12 @@ body
 {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: row;
-    height: 600px;
-    width: 700px;
     background-color: blueviolet;
     font-family: arial;
     font-weight: bolder;
     font-size: 80px;
-    padding-left: 50px;
-    padding-right: 50px;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
 }

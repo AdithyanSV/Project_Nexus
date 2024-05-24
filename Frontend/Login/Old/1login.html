@@ -1,0 +1,108 @@
+<!DOCTYPE >
+<html>
+<head>
+    <title>login page</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://iconsvg.xyz/">
+            
+</head>
+<body>
+            
+    <div class="container">
+        <div class="subcontainer">
+            <!-- Signin Screen -->
+            <form class="form signIn">
+                <div class="title">
+                    <h1 class="heading">Let's Go.</h1>
+                    <p class="details">Log in with your username and password, or use the other options </p>
+                </div>
+                <div class="inField mailIn">
+                    <p class="text">Email</p>
+                    <input class="inBox" type="email" placeholder="xyz@email.com">
+                </div>
+                <div class="inField passIn">
+                    <p class="text">Password</p>
+                    <div class="password">
+                        <input class="inBox" type="password" placeholder="*************" >
+                        <svg id="togglePass" class="eye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                </div>
+                <div class="checkbox-container">
+                    <p class="details">Keep me signed in</p>
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </div>
+                <div class="login">
+                    <button class="loginBtn" type="submit">Login</button>
+                </div>
+                <div class="options">
+                    <div class="details optionText">
+                        <p>Don't have an account? </p><pre> </pre>
+                        <a href="#" class="details optionLink"> Sign Up</a>
+                    </div>
+                    <a href="#" class="details optionLink" >Forgot Password?</a>
+                </div>
+            </form>
+
+                <!-- Register Screen -->
+            <form class="form register">
+                    <h1 class="heading">
+                        Let's start.
+                    </h1>
+                    <p class="para">
+                        fill in the details below
+                    </p>
+                    <label>
+                        Email
+                        <input class="boxes" type="email" placeholder="xyz@email.com">
+                    </label>
+                    <label>
+                        Register Number
+                        <input class="boxes" type="number" placeholder="123456789">
+                    </label>
+                    <label for="password">
+                        Password
+                        <input class="boxes" type="password" placeholder="*************" >
+                    </label>
+                    <label for="Conform Password">
+                        Conform Password
+                        <input class="boxes" type="password" placeholder="*************" >
+                    </label>
+                    <button class="signin">Sign Up</button>
+                    <label class="text1" for="login">Already have an account? 
+                        <a href="#" class="log_in"> Log in</a>
+                    </label>
+            </form>
+
+            <!-- Forgot Screen -->
+            <form action="forgot.html" class="form forgot">
+                <h1 class="heading forgot-qn">Forgot Something?</h1>
+                <p class="para">No worries,we will send you a password reset link.</p>
+                
+                
+                <div><label class="text1" for="Email">Email
+                    <input class="email" type="email" placeholder="xyz@email.com">
+                        <br><br>
+                </label></div>
+                <div><button class="reset1">Reset Password</button><br><br></div>
+                <div><a href="#" class="go1">Go Back</a></div>
+            </form>
+
+            <!-- We got you Screen -->
+            <form class="form goBack">
+                <label ><h1 class="heading got">We got you...</h1></label>
+                <p class="text">An email with the password reset will be sent to you soon.</p>
+                <div>
+                    <button class="goback1">Go Back</button>
+                </div>
+            </form>
+        </div>
+        <!-- Nexus Banner -->
+        <div class="subcontainer nexuscon">
+            <label class="nexus">NEXUS</label>
+        </div>
+    </div>
+    <script src="login.js">
+    </script>
+    </body>
+</html>
