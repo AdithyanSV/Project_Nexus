@@ -1,0 +1,26 @@
+
+        body
+        {
+            background-color: black;
+            color: white;
+            
+        }
+        table {
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid gray;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: rgb(160, 63, 160);
+        }
+        td{
+            background-color: rgb(141, 78, 199);
+        }
+        .table-container
+        {
+            min-height: 200vh;
+        }
+    
