@@ -1,3 +1,4 @@
+//Normal Radial Chart
 function RadialChart(currentValue, maxValue, location) {
 
     // Set up the SVG canvas dimensions
@@ -7,6 +8,7 @@ function RadialChart(currentValue, maxValue, location) {
     const margin = Math.min(width, height) * 0.09; // 10% of the smallest dimension
     const radius = Math.min(width, height) / 2 - margin;
 
+    // Set up the SVG canvas
     const svg = container
         .append("svg")
         .attr("width", width)
@@ -74,8 +76,7 @@ function RadialChart(currentValue, maxValue, location) {
         .style("fill", "white")
         .text(`of ${maxValue}`);
 };
-
-
+//Vertical Bar Chart
 function verticalBarChart(currentValue, maxValue, subject, location) {
     // Set up the SVG canvas dimensions
     const container = d3.select(location);
@@ -150,8 +151,7 @@ function verticalBarChart(currentValue, maxValue, subject, location) {
         .attr("transform", `rotate(-90, ${innerWidth / 2 - 25}, ${innerHeight - 15})`)
         .text(subject);
 }
-
-
+//Horizontal Bar Chart
 function horizontalBarChart(currentValue, maxValue, subject, location) {
 
     // Set up the SVG canvas dimensions
@@ -178,7 +178,7 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
         .attr("x1", "100%")
         .attr("y1", "0%")
         .attr("x2", "0%")
-        .attr("y2", "0%");  // Right to left
+        .attr("y2", "0%");
 
     gradient.append("stop")
         .attr("offset", "0%")
@@ -204,8 +204,7 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
         .attr("height", 10)
         .attr("fill", "url(#barGradient)");
 
-    // Add current value text at the end of the progress bar
-    // Add current value text at the rightmost side
+
     chartGroup.append("text")
         .attr("x", innerWidth)  // Fixed at the rightmost side
         .attr("y", innerHeight / 2 - 10)  // Center vertically
@@ -225,8 +224,6 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
         .style("fill", "white")
         .text(subject);
 }
-
-
 
 // Chart Function Calls
 verticalBarChart(95, 100, "OS", "#verticalChart1");

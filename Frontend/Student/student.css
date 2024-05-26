@@ -59,7 +59,11 @@ body
     text-decoration: none;
     cursor: pointer;
 }
-.active
+.link a{
+	color: #ffffff;
+	text-decoration: none;
+}
+.active a
 {
     color: rgb(111, 39, 180);
 }
