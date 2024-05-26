@@ -76,6 +76,84 @@ function RadialChart(currentValue, maxValue, location) {
         .style("fill", "white")
         .text(`of ${maxValue}`);
 };
+//Sall Radial Chart
+function smallRadialChart(currentValue, maxValue, location) {
+
+    // Set up the SVG canvas dimensions
+    const container = d3.select(location);
+    const width = container.node().clientWidth;
+    const height = container.node().clientHeight;
+    const margin = Math.min(width, height) * 0.09; // 10% of the smallest dimension
+    const radius = Math.min(width, height) / 2 - margin;
+
+    // Set up the SVG canvas
+    const svg = container
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+    // Background circle
+    svg.append("circle")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("r", radius)
+        .style("fill", "none")
+        .style("stroke", "#333")
+        .style("stroke-width", "6px");
+
+    // Data
+    // const currentValue = 4;
+    // const maxValue = 10;
+
+    // Arc generator
+    const arc = d3.arc()
+        .innerRadius(radius-3)
+        .outerRadius(radius+3)
+        .startAngle(-Math.PI)
+        .endAngle((2 * Math.PI) * (currentValue / maxValue) - Math.PI);
+
+    // Gradient for the progress arc
+    const gradient = svg.append("defs")
+        .append("linearGradient")
+        .attr("id", "gradient")
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "100%")
+        .attr("y2", "100%");
+
+    gradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#6A71E0");
+
+    gradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#FFAEFF");
+
+    // Progress arc
+    svg.append("path")
+        .attr("d", arc)
+        .style("fill", "url(#gradient)");
+
+    // Text for the current value
+    svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", ".21em")
+        .attr("class", "current-value")
+        .style("font-size", "75px")
+        .style("fill", "white")
+        .text(currentValue);
+
+    // // Text for the maximum value
+    // svg.append("text")
+    //     .attr("text-anchor", "middle")
+    //     .attr("dy", "3em")
+    //     .attr("class", "max-value")
+    //     .style("font-size", "18px")
+    //     .style("fill", "white")
+    //     .text(`of ${maxValue}`);
+};
 //Vertical Bar Chart
 function verticalBarChart(currentValue, maxValue, subject, location) {
     // Set up the SVG canvas dimensions
@@ -225,23 +303,87 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
         .text(subject);
 }
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const page = window.location.pathname;
+    // const page = document.body.getAttribute("data-page");
+    // console.log(page);
+    if(page.includes ("dash.html")){
+        dash();
+    }
+    else if (page.includes ("curriculum.html")){
+        console.log("In Student Curriculum Page");
+        curriculum();
+    }
+    else if (page.includes ("attendance.html")){
+        attendance();
+    }
+    else if (page.includes ("schedule.html")){
+        console.log("In Student Schedule Page");
+        schedule();
+    }
+    else if (page.includes ("marks.html")){
+        console.log("In Student Marks Page");
+        marks();
+    }
+    else{
+        console.log("Error Detected, Invalid Page");
+    }
+
+
+
+
+    function dash(){
+        console.log("In Student Dashboard");
+        verticalBarChart(95, 100, "OS", "#verticalChart1");
+        verticalBarChart(20, 100, "CVPE", "#verticalChart2");
+        verticalBarChart(60, 100, "SE", "#verticalChart3");
+        verticalBarChart(75, 100, "DCN", "#verticalChart4");
+        verticalBarChart(90, 100, "OOPS", "#verticalChart5");
+        verticalBarChart(75, 100, "IP", "#verticalChart6");
+        verticalBarChart(50, 100, "UHV", "#verticalChart7");
+        RadialChart(56, 100, "#radialChart1");
+        RadialChart(4, 10, "#radialChart2");
+    };
+
+    function attendance(){
+        console.log("In Student Attendance Page");
+        verticalBarChart(95, 100, "OS", "#verticalChart1");
+        verticalBarChart(20, 100, "CVPE", "#verticalChart2");
+        verticalBarChart(60, 100, "SE", "#verticalChart3");
+        verticalBarChart(75, 100, "DCN", "#verticalChart4");
+        verticalBarChart(90, 100, "OOPS", "#verticalChart5");
+        verticalBarChart(75, 100, "IP", "#verticalChart6");
+        verticalBarChart(50, 100, "UHV", "#verticalChart7");
+        RadialChart(56, 100, "#radialChart1");
+        horizontalBarChart(95, 100, "date-1", "#horizontalChart1");
+        horizontalBarChart(20, 100, "date-2", "#horizontalChart2");
+        horizontalBarChart(60, 100, "date-3", "#horizontalChart3");
+        horizontalBarChart(75, 100, "date-4", "#horizontalChart4");
+        horizontalBarChart(90, 100, "date-5", "#horizontalChart5");
+        horizontalBarChart(75, 100, "date-6", "#horizontalChart6");
+        horizontalBarChart(50, 100, "date-7", "#horizontalChart7");
+        horizontalBarChart(50, 100, "date-8", "#horizontalChart8");
+        horizontalBarChart(50, 100, "date-9", "#horizontalChart9");
+        horizontalBarChart(50, 100, "date-10", "#horizontalChart10");
+    }
+
+    function curriculum(){
+        console.log("In Student Curriculum Page");
+    }
+
+    function schedule(){
+        console.log("In Student Schedule Page");
+    }
+
+    function marks(){
+        console.log("In Student Marks Page");
+        RadialChart(4, 10, "#radialChart2");
+    }
+});
+
+
+
 // Chart Function Calls
-verticalBarChart(95, 100, "OS", "#verticalChart1");
-verticalBarChart(20, 100, "CVPE", "#verticalChart2");
-verticalBarChart(60, 100, "SE", "#verticalChart3");
-verticalBarChart(75, 100, "DCN", "#verticalChart4");
-verticalBarChart(90, 100, "OOPS", "#verticalChart5");
-verticalBarChart(75, 100, "IP", "#verticalChart6");
-verticalBarChart(50, 100, "UHV", "#verticalChart7");
-horizontalBarChart(95, 100, "OS", "#horizontalChart1");
-horizontalBarChart(20, 100, "CVPE", "#horizontalChart2");
-horizontalBarChart(60, 100, "SE", "#horizontalChart3");
-horizontalBarChart(75, 100, "DCN", "#horizontalChart4");
-horizontalBarChart(90, 100, "OOPS", "#horizontalChart5");
-horizontalBarChart(75, 100, "IP", "#horizontalChart6");
-horizontalBarChart(50, 100, "UHV", "#horizontalChart7");
-horizontalBarChart(50, 100, "BS", "#horizontalChart8");
 
 
-RadialChart(56, 100, "#radialChart1");
-RadialChart(4, 10, "#radialChart2");
