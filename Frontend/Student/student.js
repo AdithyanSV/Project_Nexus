@@ -305,85 +305,77 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const page = window.location.pathname;
-    // const page = document.body.getAttribute("data-page");
-    // console.log(page);
-    if(page.includes ("dash.html")){
-        dash();
+    function handlePageLoad() {
+        const page = window.location.pathname;
+        console.log(page);
+        if (page.includes("dash")) {
+            dash();
+        } else if (page.includes("attendance")) {
+            attendance();
+        } else if (page.includes("curriculum")) {
+            console.log("In Student Curriculum Page");
+            curriculum();
+        } else if (page.includes("schedule")) {
+            console.log("In Student Schedule Page");
+            schedule();
+        } else if (page.includes("marks")) {
+            console.log("In Student Marks Page");
+            marks();
+        } else {
+            console.log("Error Detected, Invalid Page");
+        }
     }
-    else if (page.includes ("curriculum.html")){
-        console.log("In Student Curriculum Page");
-        curriculum();
-    }
-    else if (page.includes ("attendance.html")){
-        attendance();
-    }
-    else if (page.includes ("schedule.html")){
-        console.log("In Student Schedule Page");
-        schedule();
-    }
-    else if (page.includes ("marks.html")){
-        console.log("In Student Marks Page");
-        marks();
-    }
-    else{
-        console.log("Error Detected, Invalid Page");
-    }
-
-
-
-
-    function dash(){
-        console.log("In Student Dashboard");
-        verticalBarChart(95, 100, "OS", "#verticalChart1");
-        verticalBarChart(20, 100, "CVPE", "#verticalChart2");
-        verticalBarChart(60, 100, "SE", "#verticalChart3");
-        verticalBarChart(75, 100, "DCN", "#verticalChart4");
-        verticalBarChart(90, 100, "OOPS", "#verticalChart5");
-        verticalBarChart(75, 100, "IP", "#verticalChart6");
-        verticalBarChart(50, 100, "UHV", "#verticalChart7");
-        RadialChart(56, 100, "#radialChart1");
-        RadialChart(4, 10, "#radialChart2");
-    };
-
-    function attendance(){
-        console.log("In Student Attendance Page");
-        verticalBarChart(95, 100, "OS", "#verticalChart1");
-        verticalBarChart(20, 100, "CVPE", "#verticalChart2");
-        verticalBarChart(60, 100, "SE", "#verticalChart3");
-        verticalBarChart(75, 100, "DCN", "#verticalChart4");
-        verticalBarChart(90, 100, "OOPS", "#verticalChart5");
-        verticalBarChart(75, 100, "IP", "#verticalChart6");
-        verticalBarChart(50, 100, "UHV", "#verticalChart7");
-        RadialChart(56, 100, "#radialChart1");
-        horizontalBarChart(95, 100, "date-1", "#horizontalChart1");
-        horizontalBarChart(20, 100, "date-2", "#horizontalChart2");
-        horizontalBarChart(60, 100, "date-3", "#horizontalChart3");
-        horizontalBarChart(75, 100, "date-4", "#horizontalChart4");
-        horizontalBarChart(90, 100, "date-5", "#horizontalChart5");
-        horizontalBarChart(75, 100, "date-6", "#horizontalChart6");
-        horizontalBarChart(50, 100, "date-7", "#horizontalChart7");
-        horizontalBarChart(50, 100, "date-8", "#horizontalChart8");
-        horizontalBarChart(50, 100, "date-9", "#horizontalChart9");
-        horizontalBarChart(50, 100, "date-10", "#horizontalChart10");
-    }
-
-    function curriculum(){
-        console.log("In Student Curriculum Page");
-    }
-
-    function schedule(){
-        console.log("In Student Schedule Page");
-    }
-
-    function marks(){
-        console.log("In Student Marks Page");
-        RadialChart(4, 10, "#radialChart2");
-    }
+    // Initial load
+    handlePageLoad();
+    // client-side routing
+    window.addEventListener('popstate', handlePageLoad);
 });
 
+function dash() {
+    console.log("In Student Dashboard");
+    verticalBarChart(95, 100, "OS", "#verticalChart1");
+    verticalBarChart(20, 100, "CVPE", "#verticalChart2");
+    verticalBarChart(60, 100, "SE", "#verticalChart3");
+    verticalBarChart(75, 100, "DCN", "#verticalChart4");
+    verticalBarChart(90, 100, "OOPS", "#verticalChart5");
+    verticalBarChart(75, 100, "IP", "#verticalChart6");
+    verticalBarChart(50, 100, "UHV", "#verticalChart7");
+    RadialChart(56, 100, "#radialChart1");
+    RadialChart(4, 10, "#radialChart2");
+}
 
+function attendance() {
+    console.log("In Student Attendance Page");
+    verticalBarChart(95, 100, "OS", "#verticalChart1");
+    verticalBarChart(20, 100, "CVPE", "#verticalChart2");
+    verticalBarChart(60, 100, "SE", "#verticalChart3");
+    verticalBarChart(75, 100, "DCN", "#verticalChart4");
+    verticalBarChart(90, 100, "OOPS", "#verticalChart5");
+    verticalBarChart(75, 100, "IP", "#verticalChart6");
+    verticalBarChart(50, 100, "UHV", "#verticalChart7");
+    RadialChart(56, 100, "#radialChart1");
+    horizontalBarChart(95, 100, "date-1", "#horizontalChart1");
+    horizontalBarChart(20, 100, "date-2", "#horizontalChart2");
+    horizontalBarChart(60, 100, "date-3", "#horizontalChart3");
+    horizontalBarChart(75, 100, "date-4", "#horizontalChart4");
+    horizontalBarChart(90, 100, "date-5", "#horizontalChart5");
+    horizontalBarChart(75, 100, "date-6", "#horizontalChart6");
+    horizontalBarChart(50, 100, "date-7", "#horizontalChart7");
+    horizontalBarChart(50, 100, "date-8", "#horizontalChart8");
+    horizontalBarChart(50, 100, "date-9", "#horizontalChart9");
+    horizontalBarChart(50, 100, "date-10", "#horizontalChart10");
+}
 
-// Chart Function Calls
+function curriculum() {
+    console.log("In Student Curriculum Page");
+}
 
+function schedule() {
+    console.log("In Student Schedule Page");
+}
+
+function marks() {
+    console.log("In Student Marks Page");
+    RadialChart(4, 10, "#radialChart2");
+}
 
