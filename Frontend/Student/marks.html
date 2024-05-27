@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <title>NEXUS-MARKS</title>
-  <!--  <link rel="stylesheet" href=".css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS-Marks</title>
+    <link rel="stylesheet" href="student.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -11,11 +13,11 @@
             <h2>NEXUS</h2>
         </div>
         <div class="navelement navlinks">
-            <div class="link">Dashboard</div>
-            <div class="link">Attendance</div>
-            <div class="link">Curriculum</div>
-            <div class="link">Schedule</div>
-            <div class="link active">Marks</div>
+            <div class="link" ><a href="dash.html">Dashboard</a></div>
+            <div class="link"><a href="attendance.html">Attendance</a></div>
+            <div class="link"><a href="curriculum.html">Curriculum</a></div>
+            <div class="link"><a href="schedule.html">Schedule</a></div>
+            <div class="link active"><a href="marks.html">Marks</a></div>
         </div>
         <div class="navelement navicons">
             <div class="icon1">icon1</div>
@@ -23,17 +25,40 @@
         </div>
     </div>
     <div class="marks">
-        <div class="tile cspan3"> 
+        <div class="tile rspan2"> 
             <div class="title">
                 <h3>A</h3>
             </div>
+            <div class="content">
+                <div class="radialChart" id="radialChart2"></div>
+            </div>
         </div>
-        <div class="tile cspan2">
+        <div class="tile cspan3 rspan2">
             <div class="title">
                 <h3>B</h3>
             </div>
+            <div class="content2">
+                <div class="hBarChart" id="horizontalChart1"></div>
+                <div class="hBarChart" id="horizontalChart2"></div>
+                <div class="hBarChart" id="horizontalChart3"></div>
+                <div class="hBarChart" id="horizontalChart4"></div>
+                <div class="hBarChart" id="horizontalChart5"></div>
+                <div class="hBarChart" id="horizontalChart6"></div>
+                <div class="hBarChart" id="horizontalChart7"></div>
+                <div class="hBarChart" id="horizontalChart8"></div>
+            </div>
+            <div class="content2">
+                <div class="hBarChart" id="horizontalChart1"></div>
+                <div class="hBarChart" id="horizontalChart2"></div>
+                <div class="hBarChart" id="horizontalChart3"></div>
+                <div class="hBarChart" id="horizontalChart4"></div>
+                <div class="hBarChart" id="horizontalChart5"></div>
+                <div class="hBarChart" id="horizontalChart6"></div>
+                <div class="hBarChart" id="horizontalChart7"></div>
+                <div class="hBarChart" id="horizontalChart8"></div>
+            </div>
         </div>
-        <div class="tile">
+        <!-- <div class="tile">
             <div class="title">
                 <h3>C</h3>
             </div>
@@ -42,7 +67,7 @@
             <div class="title">
                 <h3>D</h3>
             </div>
-        </div>
+        </div> -->
     </div>
 </body>
 </html>

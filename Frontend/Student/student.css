@@ -6,7 +6,7 @@
  }
 body
 {
-    width:100vw ;
+    width:100%;
     min-height: 100vh;
     background-color: black;
     color: white;
@@ -59,7 +59,11 @@ body
     text-decoration: none;
     cursor: pointer;
 }
-.active
+.link a{
+	color: #ffffff;
+	text-decoration: none;
+}
+.active a
 {
     color: rgb(111, 39, 180);
 }
@@ -71,6 +75,39 @@ body
     grid-template-columns: repeat(4, 22.5vw);
     grid-gap: 2vw;
     grid-template-rows: repeat(2, 22.5vw);
+}
+.attendance{
+    width: 96vw;
+    height: 130vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(3, 22.5vw);
+}
+.curriculum
+{
+    width: 96vw;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(2, 22.5vw);
+}
+.schedule{
+    width: 96vw;
+    height: 130vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(3, 22.5vw);
+}
+.marks{
+    width: 96vw;
+    height: 130vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(3, 22.5vw);
 }
 .tile{
     padding: 1.5vw;
@@ -98,6 +135,10 @@ body
 .rspan2
 {
     grid-row: span 2;
+}
+.rspan3
+{
+    grid-row: span 3;
 }
 .cspan2
 {
