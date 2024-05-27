@@ -1,5 +1,5 @@
 //Normal Radial Chart
-function RadialChart(currentValue, maxValue, location) {
+function RadialChart(currentValue, maxValue, label, location) {
 
     // Set up the SVG canvas dimensions
     const container = d3.select(location);
@@ -74,7 +74,7 @@ function RadialChart(currentValue, maxValue, location) {
         .attr("class", "max-value")
         .style("font-size", "18px")
         .style("fill", "white")
-        .text(`of ${maxValue}`);
+        .text(`${label}`);
 };
 //Sall Radial Chart
 function smallRadialChart(currentValue, maxValue, location) {
@@ -329,50 +329,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function dash() {
-    console.log("In Student Dashboard");
-    verticalBarChart(95, 100, "OS", "#verticalChart1");
-    verticalBarChart(20, 100, "CVPE", "#verticalChart2");
-    verticalBarChart(60, 100, "SE", "#verticalChart3");
-    verticalBarChart(75, 100, "DCN", "#verticalChart4");
-    verticalBarChart(90, 100, "OOPS", "#verticalChart5");
-    verticalBarChart(75, 100, "IP", "#verticalChart6");
-    verticalBarChart(50, 100, "UHV", "#verticalChart7");
-    RadialChart(56, 100, "#radialChart1");
-    RadialChart(4, 10, "#radialChart2");
+    console.log("In Teacher Dashboard");
+    RadialChart(56, 100, "Class X", "#radialChart1");
+    RadialChart(4, 100, "Class X", "#radialChart2");
+    RadialChart(90, 100, "Class X", "#radialChart3");
 }
 
 function attendance() {
-    console.log("In Student Attendance Page");
-    verticalBarChart(95, 100, "OS", "#verticalChart1");
-    verticalBarChart(20, 100, "CVPE", "#verticalChart2");
-    verticalBarChart(60, 100, "SE", "#verticalChart3");
-    verticalBarChart(75, 100, "DCN", "#verticalChart4");
-    verticalBarChart(90, 100, "OOPS", "#verticalChart5");
-    verticalBarChart(75, 100, "IP", "#verticalChart6");
-    verticalBarChart(50, 100, "UHV", "#verticalChart7");
-    RadialChart(56, 100, "#radialChart1");
-    horizontalBarChart(95, 100, "date-1", "#horizontalChart1");
-    horizontalBarChart(20, 100, "date-2", "#horizontalChart2");
-    horizontalBarChart(60, 100, "date-3", "#horizontalChart3");
-    horizontalBarChart(75, 100, "date-4", "#horizontalChart4");
-    horizontalBarChart(90, 100, "date-5", "#horizontalChart5");
-    horizontalBarChart(75, 100, "date-6", "#horizontalChart6");
-    horizontalBarChart(50, 100, "date-7", "#horizontalChart7");
-    horizontalBarChart(50, 100, "date-8", "#horizontalChart8");
-    horizontalBarChart(50, 100, "date-9", "#horizontalChart9");
-    horizontalBarChart(50, 100, "date-10", "#horizontalChart10");
+    console.log("In Teacher Attendance Page");
+    RadialChart(56, 100, "Class X", "#radialChart-1");
+    RadialChart(4, 100, "Class X", "#radialChart-2");
+    RadialChart(90, 100, "Class X", "#radialChart-3");
+    RadialChart(75, 100, "Class X", "#radialChart-4");
 }
 
 function curriculum() {
-    console.log("In Student Curriculum Page");
+    console.log("In Teacher Curriculum Page");
 }
 
 function schedule() {
-    console.log("In Student Schedule Page");
+    console.log("In Teacher Schedule Page");
 }
 
 function marks() {
-    console.log("In Student Marks Page");
+    console.log("In Teacher Marks Page");
     RadialChart(4, 10, "#radialChart2");
 }
 

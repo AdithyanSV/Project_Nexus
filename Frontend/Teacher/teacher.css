@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding:0 ; 
+    box-sizing: border-box;
+    font-family:arial ;
+ }
+body
+{
+    width:100%;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar
+{
+    width: 96vw;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navelement
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.navlogo
+{
+    width: 20vw;
+    letter-spacing: 10px;
+    align-content: center;
+    justify-content: flex-start;
+}
+.navlinks
+{
+    display: grid;
+    grid-template-columns:repeat(5, 8vw);
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+.navicons
+{
+    width: 20vw;
+    justify-content: end;
+    display: grid;
+    grid-template-columns:50px 50px ;
+}
+.link{
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.link a{
+	color: #ffffff;
+	text-decoration: none;
+}
+.active a
+{
+    color: rgb(111, 39, 180);
+}
+.dash
+{
+    width: 96vw;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(2, 22.5vw);
+}
+.attendance{
+    width: 96vw;
+    height: 130vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(3, 22.5vw);
+}
+.curriculum
+{
+    width: 96vw;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(2, 22.5vw);
+}
+.schedule{
+    width: 96vw;
+    height: 130vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(3, 22.5vw);
+}
+.marks{
+    width: 96vw;
+    height: 130vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(3, 22.5vw);
+}
+.tile{
+    padding: 1.5vw;
+    border:1px solid rgb(36, 36, 36); 
+    border-radius: 12px;
+    background-color: rgb(30, 30, 30);
+    box-shadow: 0.2vw 0.2vh 10px rgb(83, 80, 80);
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    letter-spacing: 0.2vw;
+}
+.title{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.cspan4
+{
+    grid-column: span 4;
+}
+.cspan3
+{
+    grid-column: span 3;
+}
+.rspan2
+{
+    grid-row: span 2;
+}
+.rspan3
+{
+    grid-row: span 3;
+}
+.cspan2
+{
+    grid-column: span 2;  
+}
+ .more
+{
+    text-decoration: none;
+    color: magenta;
+    display: flex;
+} 
+.radialChart
+{
+    height: 18vw;
+    width: 18vw;
+}
+/* #verticalChart
+{
+    height: 18vw;
+    width: 3vw;
+    color: azure;
+} */
+.content{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+.content2{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.vBarChart{
+    height: 18vw;
+    width: 3vw;
+}
+.hBarChart{
+    height: 3vw;
+    width: 18vw;
+}
