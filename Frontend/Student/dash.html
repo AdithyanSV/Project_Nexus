@@ -6,12 +6,27 @@
     <title>NEXUS-Dash</title>
     <link rel="stylesheet" href="student.css">
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="navbar">
         <div class="navelement navlogo">
             <h2>NEXUS</h2>
         </div>
+        <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-align-justify button" id="btn" class="button"></i>
+      <i class="fa fa-remove" id="cancel" class="button"></i>
+    </label>
+  <div class="icon-bar">
+    <a class="active" href="#">Dashboard</a> 
+    <a href="#">Attendance</a> 
+    <a href="#">Curriculum</a> 
+    <a href="#">Schedule</a>
+    <a href="#">Marks</a> 
+  </div>
+  <section></section>
+        
         <div class="navelement navlinks">
             <div class="link active" ><a href="">Dashboard</a></div>
             <div class="link"><a href="attendance.html">Attendance</a></div>
@@ -20,8 +35,12 @@
             <div class="link"><a href="marks.html">Marks</a></div>
         </div>
         <div class="navelement navicons">
-            <div class="icon1">icon1</div>
-            <div class="icon2">icon2</div>
+            <div class="icon1">
+                <i class="fa fa-bell-o"></i>
+            </div>
+            <div class="icon2">
+                <i class="fa fa-user-circle-o"></i>
+            </div>
         </div>
     </div>
     <div class="dash">
