@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS-Curriculum</title>
-    <link rel="stylesheet" href="student.css">
+    <title>NEXUS-Dash</title>
+    <link rel="stylesheet" href="teacher.css">
     <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
@@ -13,9 +13,9 @@
             <h2>NEXUS</h2>
         </div>
         <div class="navelement navlinks">
-            <div class="link" ><a href="dash.html">Dashboard</a></div>
+            <div class="link active" ><a href="">Dashboard</a></div>
             <div class="link"><a href="attendance.html">Attendance</a></div>
-            <div class="link active"><a href="curriculum.html">Curriculum</a></div>
+            <div class="link"><a href="curriculum.html">Curriculum</a></div>
             <div class="link"><a href="schedule.html">Schedule</a></div>
             <div class="link"><a href="marks.html">Marks</a></div>
         </div>
@@ -24,28 +24,36 @@
             <div class="icon2">icon2</div>
         </div>
     </div>
-    <div class="curriculum">
-        <div class="tile cspan2"> 
+    <div class="dash">
+        <div class="tile cspan3"> 
             <div class="title">
-                <h3>A</h3>
+                <h3>Progress</h3>
+                <a href="#" class="more"> more ></a>
+            </div>
+            <div class="content">
+                <div class="radialChart" id="radialChart1"></div>
+                <div class="radialChart" id="radialChart2"></div>
+                <div class="radialChart" id="radialChart3"></div>
             </div>
         </div>
-        <div class="tile cspan2">
+
+        <div class="tile rspan2">
             <div class="title">
-                <h3>B</h3>
+                <h3>TimeTable</h3>
+                <a href="#" class="more"> more ></a>
+            </div>
+            <div class="content2">
             </div>
         </div>
-        <div class="tile">
+
+        <div class="tile cspan3">
             <div class="title">
-                <h3>C</h3>
+                <h3>Syllabus</h3>
+                <a href="#" class="more"> more ></a>
             </div>
         </div>
-        <div class="tile cspan2">
-            <div class="title">
-                <h3>D</h3>
-            </div>
-        </div>
+
     </div>
-    <script src="student.js"></script>
+    <script src="teacher.js"></script>
 </body>
 </html>

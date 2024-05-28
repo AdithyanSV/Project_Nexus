@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS-Attendance</title>
+    <link rel="stylesheet" href="teacher.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navelement navlogo">
+            <h2>NEXUS</h2>
+        </div>
+        <div class="navelement navlinks">
+            <div class="link" ><a href="dash.html">Dashboard</a></div>
+            <div class="link active"><a href="attendance.html">Attendance</a></div>
+            <div class="link"><a href="curriculum.html">Curriculum</a></div>
+            <div class="link"><a href="schedule.html">Schedule</a></div>
+            <div class="link"><a href="marks.html">Marks</a></div>
+        </div>
+        <div class="navelement navicons">
+            <div class="icon1">icon1</div>
+            <div class="icon2">icon2</div>
+        </div>
+    </div>
+    <div class="attendance">
+        <div class="tile cspan4"> 
+            <div class="title">
+                <h3>Overview</h3>   
+                <a href="#" class="more"> more ></a>
+            </div>
+            <div class="content">
+                <div class="radialChart" id="radialChart-1"></div>
+                <div class="radialChart" id="radialChart-2"></div>
+                <div class="radialChart" id="radialChart-3"></div>
+                <div class="radialChart" id="radialChart-4"></div>
+            </div>
+        </div>
+
+        <!-- <div class="tile rspan3"> 
+            <div class="title">
+                <h3>Recent Days</h3>
+            </div>
+            <div class="content2">
+            </div>
+        </div>
+        <div class="tile cspan3 rspan2"> 
+            <div class="title">
+                <h3>Subjects</h3>
+            </div>
+            <div class="content">
+            </div>
+        </div> -->
+        <script src="teacher.js"></script>
+</body>
+</html>
