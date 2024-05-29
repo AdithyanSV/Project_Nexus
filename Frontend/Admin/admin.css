@@ -76,39 +76,6 @@ body
     grid-gap: 2vw;
     grid-template-rows: repeat(2, 22.5vw);
 }
-.attendance{
-    width: 96vw;
-    height: 130vh;
-    display: grid;
-    grid-template-columns: repeat(4, 22.5vw);
-    grid-gap: 2vw;
-    grid-template-rows: repeat(3, 22.5vw);
-}
-.curriculum
-{
-    width: 96vw;
-    height: 85vh;
-    display: grid;
-    grid-template-columns: repeat(4, 22.5vw);
-    grid-gap: 2vw;
-    grid-template-rows: repeat(2, 22.5vw);
-}
-.schedule{
-    width: 96vw;
-    height: 130vh;
-    display: grid;
-    grid-template-columns: repeat(4, 22.5vw);
-    grid-gap: 2vw;
-    grid-template-rows: repeat(3, 22.5vw);
-}
-.marks{
-    width: 96vw;
-    height: 130vh;
-    display: grid;
-    grid-template-columns: repeat(4, 22.5vw);
-    grid-gap: 2vw;
-    grid-template-rows: repeat(3, 22.5vw);
-}
 .tile{
     padding: 1.5vw;
     border:1px solid rgb(36, 36, 36); 
@@ -168,3 +135,61 @@ body
     justify-content: space-between;
     align-items: center;
 }
+
+table, td {
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+}
+th {
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+    background-color: rgba(187, 185, 188, 0.25);
+}
+tr:nth-child(even) {
+    background-color: rgba(187, 185, 188, 0.05);
+}
+
+.table {
+    width: 95vw;
+    margin: 0 auto;
+}
+.tableHead {
+    width: 100%;
+}
+.tableBody {
+    width: 100%;
+}
+.tableRow {
+    height: 10vh;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/* width:100%
+"height:200px"
+
+table, th, td {
+   border: 1px solid black;
+   border-collapse: collapse;
+ }
+CSS for single line table border
+
+tr:nth-child(even) {
+    background-color: #D6EEEE;
+  }
+CSS for adding seperate color to even rows
+
+td:nth-child(even), th:nth-child(even) {
+   background-color: #D6EEEE;
+}
+CSS for adding seperate color to even cells
+
+tr {
+    border-bottom: 1px solid #ddd;
+  }
+Css for adding bottom border to rows
+
+tr:hover {background-color: #D6EEEE;}
+CSS for hover effect */
