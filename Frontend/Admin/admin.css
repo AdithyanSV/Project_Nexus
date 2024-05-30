@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family:arial ;
  }
+
 body
 {
     width:100%;
@@ -14,6 +15,27 @@ body
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(106, 113, 224), rgba(187, 185, 188, 0.25);
+}
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height of the scrollbar for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(187, 185, 188, 0.25); /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(187, 185, 188, 0.25); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+    border: 3px solid rgba(187, 185, 188, 0.25); /* Space around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(106, 113, 224); /* Color when hovering over the thumb */
 }
 .navbar
 {
@@ -136,23 +158,46 @@ body
     align-items: center;
 }
 
-table, td {
+.tableContainer {
+    max-height: 90vh;
+    width: 95vw;
+    overflow-x: auto;
+    margin: 0 auto;
+}
+.table {
+    width: 95vw;
+    overflow-x: auto;
+    margin: 0 auto;
+}
+table{
+    min-width: fit-content;
+    border-radius: 15px;
+    overflow: hidden;
+    border-spacing: 0;
     border: 1px solid rgba(187, 185, 188, 0.25);
     border-collapse: collapse;
+    border-spacing: 0;
+}
+td {
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+    padding: 3vh;
 }
 th {
+    padding: 3vh;
     border: 1px solid rgba(187, 185, 188, 0.25);
     border-collapse: collapse;
-    background-color: rgba(187, 185, 188, 0.25);
+    background-color: rgb(30, 27, 30);
+    position: sticky;
+    top: 0;
 }
 tr:nth-child(even) {
     background-color: rgba(187, 185, 188, 0.05);
 }
-
-.table {
-    width: 95vw;
-    margin: 0 auto;
+tr:hover {
+    background-color: rgb(194, 190, 195, 0.25);
 }
+
 .tableHead {
     width: 100%;
 }
