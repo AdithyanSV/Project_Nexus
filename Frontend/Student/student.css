@@ -74,7 +74,7 @@ body
     left: 40px;
     font-size: 15px;
     color: white;
-    padding: 6px 12px;
+    padding: 6px 10px;
     transition: all .5s;
   }
   
@@ -144,7 +144,7 @@ body
     grid-template-columns:repeat(5, 8vw);
     justify-content: center;
     align-items: center;
-    font-size: 15px;
+    
 }
 .navicons
 {
@@ -301,6 +301,7 @@ body
     {
         font-size: 20px;
     }
+    
     .navbar
     {
         width: 90vw;
@@ -341,6 +342,7 @@ body
 }
     label #btn {
         display: block;
+
     }
     .dash
     {
@@ -352,9 +354,9 @@ body
 
     }
     .navbar
-{
-    width: 90vw;
-}
+    {
+        width: 90vw;
+    }
     .navlinks
     {
         display: none;
@@ -374,6 +376,11 @@ body
     {
         grid-column: span 3;  
     }
+    .attendance{
+        margin-left: 2vw;
+        
+    }
+    
 }
 @media only screen and (max-width: 375px)
 {
@@ -455,26 +462,28 @@ body
         display: none;
     }
     .navbar {
-        width: 95vw;
+        width: 120vw;
         margin-left: 10px;
     }
     .icon-bar {
         left: -200px;
-        width: 200px;
-        height: 91%;
+        width: 180px;
+        height: 50%;
     }
+
     label #btn {
-        left: 60px;
+        left: 20px;
+        font-size: 20px;
       }
     #check:checked ~ label #cancel {
-        left: 160px;
+        left: 140px;
     }
     label #cancel {
-        top: 10px;
+        top: 9px;
         font-size: 16px;
-        padding: 5px 9px;
+        padding: 4px 9px;
     }
-    .navicon8
+    .navicons
     {
         margin-left: 90vw;
         width: 35vw;
@@ -505,5 +514,9 @@ body
         height: 88%;
         display: flex;
         justify-content: space-between;
+    }
+    .icon-bar a {
+        display: block;
+        font-size: 19px;
     }
 }
