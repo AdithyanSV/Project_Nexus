@@ -1,0 +1,888 @@
+[
+    {
+      "name": "Alice Smith",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2008-01-01",
+      "admission_number": "20240001",
+      "roll_number": 1,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 85,
+        "sub2": 90,
+        "sub3": 88,
+        "sub4": 78,
+        "sub5": 82
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240002",
+      "roll_number": 2,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240003",
+      "roll_number": 3,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240004",
+      "roll_number": 4,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240005",
+      "roll_number": 5,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240006",
+      "roll_number": 6,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240007",
+      "roll_number": 7,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240008",
+      "roll_number": 8,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240009",
+      "roll_number": 9,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240010",
+      "roll_number": 10,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240011",
+      "roll_number": 11,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2007-12-15",
+      "admission_number": "20240012",
+      "roll_number": 12,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 75,
+        "sub2": 82,
+        "sub3": 80,
+        "sub4": 85,
+        "sub5": 79
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Zoe Williams",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2008-03-20",
+      "admission_number": "20240013",
+      "roll_number": 13,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 92,
+        "sub2": 98,
+        "sub3": 95,
+        "sub4": 89,
+        "sub5": 90
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Zoe Williams",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2008-03-20",
+      "admission_number": "20240014",
+      "roll_number": 14,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 92,
+        "sub2": 98,
+        "sub3": 95,
+        "sub4": 89,
+        "sub5": 90
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    },
+    {
+      "name": "Zoe Williams",
+      "email": "abcxyz@gmail.com",
+      "phone_no": "1234567890",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "Pin": "123456"
+      },
+      "date_of_birth": "2008-03-20",
+      "admission_number": "20240015",
+      "roll_number": 15,
+      "class": "IT",
+      "division": "A",
+      "marks": {
+        "sub1": 92,
+        "sub2": 98,
+        "sub3": 95,
+        "sub4": 89,
+        "sub5": 90
+      },
+      "attendance": {
+        "240101": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240102": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 0
+        },
+        "240103": {
+            "sub1": 1,
+            "sub2": 0,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        },
+        "240104": {
+            "sub1": 0,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 0,
+            "sub5": 0
+        },
+        "240105": {
+            "sub1": 1,
+            "sub2": 1,
+            "sub3": 1,
+            "sub4": 1,
+            "sub5": 1
+        }
+      }
+    }
+  ]
+  

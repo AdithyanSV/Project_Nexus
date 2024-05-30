@@ -1,0 +1,195 @@
+*{
+    margin: 0;
+    padding:0 ; 
+    box-sizing: border-box;
+    font-family:arial ;
+ }
+body
+{
+    width:100%;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar
+{
+    width: 96vw;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navelement
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.navlogo
+{
+    width: 20vw;
+    letter-spacing: 10px;
+    align-content: center;
+    justify-content: flex-start;
+}
+.navlinks
+{
+    display: grid;
+    grid-template-columns:repeat(3, 12vw);
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+.navicons
+{
+    width: 20vw;
+    justify-content: end;
+    display: grid;
+    grid-template-columns:50px 50px ;
+}
+.link{
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.link a{
+	color: #ffffff;
+	text-decoration: none;
+}
+.active a
+{
+    color: rgb(111, 39, 180);
+}
+.dash
+{
+    width: 96vw;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: repeat(4, 22.5vw);
+    grid-gap: 2vw;
+    grid-template-rows: repeat(2, 22.5vw);
+}
+.tile{
+    padding: 1.5vw;
+    border:1px solid rgb(36, 36, 36); 
+    border-radius: 12px;
+    background-color: rgb(30, 30, 30);
+    box-shadow: 0.2vw 0.2vh 10px rgb(83, 80, 80);
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    letter-spacing: 0.2vw;
+}
+.title{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.cspan4
+{
+    grid-column: span 4;
+}
+.cspan3
+{
+    grid-column: span 3;
+}
+.rspan2
+{
+    grid-row: span 2;
+}
+.rspan3
+{
+    grid-row: span 3;
+}
+.cspan2
+{
+    grid-column: span 2;  
+}
+ .more
+{
+    text-decoration: none;
+    color: magenta;
+    display: flex;
+}
+.content{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+.content2{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table, td {
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+}
+th {
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+    background-color: rgba(187, 185, 188, 0.25);
+}
+tr:nth-child(even) {
+    background-color: rgba(187, 185, 188, 0.05);
+}
+
+.table {
+    width: 95vw;
+    margin: 0 auto;
+}
+.tableHead {
+    width: 100%;
+}
+.tableBody {
+    width: 100%;
+}
+.tableRow {
+    height: 10vh;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/* width:100%
+"height:200px"
+
+table, th, td {
+   border: 1px solid black;
+   border-collapse: collapse;
+ }
+CSS for single line table border
+
+tr:nth-child(even) {
+    background-color: #D6EEEE;
+  }
+CSS for adding seperate color to even rows
+
+td:nth-child(even), th:nth-child(even) {
+   background-color: #D6EEEE;
+}
+CSS for adding seperate color to even cells
+
+tr {
+    border-bottom: 1px solid #ddd;
+  }
+Css for adding bottom border to rows
+
+tr:hover {background-color: #D6EEEE;}
+CSS for hover effect */
