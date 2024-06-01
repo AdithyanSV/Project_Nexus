@@ -19,8 +19,8 @@ async function fetchData(url) {
 
 
 
-async function initializeTable() {
-    const dataUrl = 'http://localhost:8080/dummy.json';
+async function initializeTable(url) {
+    const dataUrl = url;
     const data = await fetchData(dataUrl);
     if (data) {
         buildTable("studentTableBody", data);
@@ -129,12 +129,11 @@ function dash() {
 function student() {
     console.log("In Admin Student Page");
     createTable("studentTable", ["Adm.No", "Name", "email", "phone"]);
-    initializeTable();
-    
+    initializeTable('http://localhost:8080/dummy.json');   
 }
 
 function teacher() {
     console.log("In Admin Teacher Page");
     createTable("teacherTable", ["Adm.No", "Name", "email", "phone"]);
-    initializeTable();
+    initializeTable('http://localhost:8080/dummy.json');
 }
