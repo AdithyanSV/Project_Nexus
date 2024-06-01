@@ -110,10 +110,10 @@ function editCell() {
     let phoneNo = row.cells[3].textContent.trim();
 
     // Replace cells with input fields
-    row.cells[0].innerHTML = `<input type="text" value="${admissionNumber}" />`;
-    row.cells[1].innerHTML = `<input type="text" value="${name}" />`;
-    row.cells[2].innerHTML = `<input type="text" value="${email}" />`;
-    row.cells[3].innerHTML = `<input type="text" value="${phoneNo}" />`;
+    row.cells[0].innerHTML = `<input type="text" value="${admissionNumber}" placeholder="${admissionNumber}" />`;
+    row.cells[1].innerHTML = `<input type="text" value="${name}"  placeholder="${name}"/>`;
+    row.cells[2].innerHTML = `<input type="text" value="${email}"  placeholder="${email}"/>`;
+    row.cells[3].innerHTML = `<input type="text" value="${phoneNo}"  placeholder="${phoneNo}"/>`;
 
     // Toggle button visibility
     toggleButtons(testId, true, false);
@@ -122,6 +122,20 @@ function editCell() {
 function deleteCell() {
     let testId = this.getAttribute("data-testId");
     let row = this.closest("tr");
+
+    // Get the current values
+    let admissionNumber = row.cells[0].textContent.trim();
+    let name = row.cells[1].textContent.trim();
+    let email = row.cells[2].textContent.trim();
+    let phoneNo = row.cells[3].textContent.trim();
+
+    let deleteData = [{
+        "admission_number" : admissionNumber,
+        "name" : name,
+        "email" : email,
+        "phone_no" : phoneNo
+    }];
+    console.log(deleteData);
 
     // Toggle button visibility for deletion confirmation
     toggleButtons(testId, false, true);
@@ -135,17 +149,37 @@ function confirmCell() {
         // If the row is pending deletion, remove it
         row.remove();
     } else {
+        //Get the old values from the placeholders of the input fields
+        let oldAdmissionNumber = row.cells[0].querySelector("input").placeholder.trim();
+        let oldName = row.cells[1].querySelector("input").placeholder.trim(); 
+        let oldEmail = row.cells[2].querySelector("input").placeholder.trim();
+        let oldPhoneNo = row.cells[3].querySelector("input").placeholder.trim();
         // Get the new values from input fields
         let admissionNumber = row.cells[0].querySelector("input").value.trim();
         let name = row.cells[1].querySelector("input").value.trim();
         let email = row.cells[2].querySelector("input").value.trim();
         let phoneNo = row.cells[3].querySelector("input").value.trim();
+        
+        //Data to send back to the server
+        let updateData = [{
+            "admission_number" : oldAdmissionNumber,
+            "name" : oldName,
+            "email" : oldEmail,
+            "phone_no" : oldPhoneNo
+        }, {
+            "admission_number" : admissionNumber,
+            "name" : name,
+            "email" : email,
+            "phone_no" : phoneNo
+        }];
 
         // Replace input fields with text
         row.cells[0].textContent = admissionNumber;
         row.cells[1].textContent = name;
         row.cells[2].textContent = email;
         row.cells[3].textContent = phoneNo;
+
+        console.log(updateData);
 
         // Toggle button visibility
         toggleButtons(testId, false, false);
@@ -260,7 +294,6 @@ function student() {
         searchTable('studentTableBody', searchInput.value);
     });
     window.addEventListener('keydown', function(e) {
-        console.log(e.key);
         if (e.key === "Escape") {
             searchInput.value = '';
             searchTable('studentTableBody', searchInput.value);
@@ -284,7 +317,6 @@ function teacher() {
         searchTable('teacherTableBody', searchInput.value);
     });
     window.addEventListener('keydown', function(e) {
-        console.log(e.key);
         if (e.key === "Escape") {
             searchInput.value = '';
             searchTable('teacherTableBody', searchInput.value);
