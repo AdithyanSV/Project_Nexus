@@ -14,7 +14,7 @@ body
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     scrollbar-width: thin;
     scrollbar-color: rgb(106, 113, 224), rgba(187, 185, 188, 0.25);
 }
@@ -34,6 +34,9 @@ body
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(106, 113, 224);
 }
+.hidden{
+    display: none;
+}
 .navbar
 {
     width: 96vw;
@@ -41,6 +44,7 @@ body
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 5vh;
 }
 .navelement
 {
@@ -200,11 +204,6 @@ body
 .searchControl{
     /* display: none; */
 }
-.primaryControl{
-}
-.secondaryControl{
-    display: none;
-}
 .positiveControl:hover{
     border: 1px solid rgb(255, 175, 255);
 }
@@ -271,7 +270,6 @@ tr:hover {
     vertical-align: middle;
 }
 .options{
-    display: none;
     padding: 0;
     width: 14vw;
 }
