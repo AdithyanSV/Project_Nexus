@@ -1,3 +1,4 @@
+// let workingData =[];
 async function fetchData(url) {
     try {
         const response = await fetch(url);
@@ -7,6 +8,7 @@ async function fetchData(url) {
         }
         // Parse the JSON response
         const data = await response.json();
+        workingData = data;
         return data;
     } catch (error) {
         // Handle any errors
@@ -81,7 +83,12 @@ function buildTable(tableBodyId, data) {
         <td> ${data[i].admission_number} </td>
         <td> ${data[i].name} </td>
         <td> ${data[i].email} </td>
-        <td> ${data[i].phone_no} </td>`;
+        <td> ${data[i].phone_no} </td>
+        <td class="options" id="options${i}">
+        <button>Edit</button>
+        <button>Delete</button>
+        <button>Confirm</button>
+        <button>Cancel</button></td>`;
         row.innerHTML = rowdata;
         tableBody.appendChild(row);
     }
@@ -127,5 +134,7 @@ function student() {
 }
 
 function teacher() {
-    console.log("In Admin Curriculum Page");
+    console.log("In Admin Teacher Page");
+    createTable("teacherTable", ["Adm.No", "Name", "email", "phone"]);
+    initializeTable();
 }

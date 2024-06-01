@@ -19,23 +19,20 @@ body
     scrollbar-color: rgb(106, 113, 224), rgba(187, 185, 188, 0.25);
 }
 ::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
-    height: 12px; /* Height of the scrollbar for horizontal scrollbars */
+    width: 1vh;
+    height: 1vh;
 }
-
 ::-webkit-scrollbar-track {
-    background: rgba(187, 185, 188, 0.25); /* Background of the scrollbar track */
-    border-radius: 10px; /* Rounded corners for the track */
+    background: rgba(187, 185, 188, 0.25);
+    border-radius: 5px;
 }
-
 ::-webkit-scrollbar-thumb {
-    background: rgba(187, 185, 188, 0.25); /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-    border: 3px solid rgba(187, 185, 188, 0.25); /* Space around the thumb */
+    background: rgba(187, 185, 188, 0.25);
+    border-radius: 5px;
+    border: 2px solid rgba(187, 185, 188, 0.25);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(106, 113, 224); /* Color when hovering over the thumb */
+    background: rgb(106, 113, 224);
 }
 .navbar
 {
@@ -87,7 +84,7 @@ body
 }
 .active a
 {
-    color: rgb(111, 39, 180);
+    color: rgb(106, 113, 224);
 }
 .dash
 {
@@ -158,6 +155,57 @@ body
     align-items: center;
 }
 
+.tableOptions {
+    width: 95vw;
+    padding: 1vh;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search {
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchBar {
+    width: 60vw;
+    height: 4vh;
+    background: rgba(187, 185, 188, 0.05);
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    color: aliceblue;
+    border-radius: 5px;
+    padding: 1vh;
+    /* margin-right: 1vh; */
+}
+.searchBar:hover {
+    border:1px solid rgb(106, 113, 224);
+}
+.controlBtn{
+    width: 10vw;
+    height: 4vh;
+    background: rgba(187, 185, 188, 0.05);
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    color: aliceblue;
+    border-radius: 5px;
+    padding: 1vh;
+    margin-left: 1vh;
+    cursor: pointer;
+}
+.controlBtn:hover{
+    border:1px solid magenta;
+}
+.searchControl{
+    /* display: none; */
+}
+.primaryControl{
+}
+.secondaryControl{
+    display: none;
+}
+
 .tableContainer {
     max-height: 90vh;
     width: 95vw;
@@ -196,7 +244,9 @@ tr:nth-child(even) {
 }
 tr:hover {
     background-color: rgb(194, 190, 195, 0.25);
+    border:2px solid rgb(106, 113, 224);
 }
+
 
 .tableHead {
     width: 100%;
@@ -210,27 +260,14 @@ tr:hover {
     text-align: center;
     vertical-align: middle;
 }
-
-
-/* width:100%
-"height:200px"
-
-table, th, td {
-   border: 1px solid black;
-   border-collapse: collapse;
- }
-CSS for single line table border
-
-tr:nth-child(even) {
-    background-color: #D6EEEE;
-  }
-CSS for adding seperate color to even rows
-
-td:nth-child(even), th:nth-child(even) {
-   background-color: #D6EEEE;
+.options{
+    display: none;
 }
-CSS for adding seperate color to even cells
 
+
+
+
+/*
 tr {
     border-bottom: 1px solid #ddd;
   }
