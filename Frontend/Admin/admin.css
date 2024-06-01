@@ -195,7 +195,7 @@ body
     cursor: pointer;
 }
 .controlBtn:hover{
-    border:1px solid magenta;
+    border:1px solid rgb(106, 113, 224);
 }
 .searchControl{
     /* display: none; */
@@ -204,6 +204,16 @@ body
 }
 .secondaryControl{
     display: none;
+}
+.positiveControl:hover{
+    border: 1px solid rgb(255, 175, 255);
+}
+.negativeControl:hover{
+    border: 1px solid rgb(238, 55, 197);
+}
+.cellControl{
+    width: 5vw;
+    height: 4vh;
 }
 
 .tableContainer {
@@ -262,6 +272,8 @@ tr:hover {
 }
 .options{
     display: none;
+    padding: 0;
+    width: 14vw;
 }
 
 

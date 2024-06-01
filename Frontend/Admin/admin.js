@@ -85,10 +85,11 @@ function buildTable(tableBodyId, data) {
         <td> ${data[i].email} </td>
         <td> ${data[i].phone_no} </td>
         <td class="options" id="options${i}">
-        <button>Edit</button>
-        <button>Delete</button>
-        <button>Confirm</button>
-        <button>Cancel</button></td>`;
+            <button id="stCellEdit${i}" class="controlBtn cellControl primaryControl">Edit</button>
+            <button id="stCellDelete${i}" class="controlBtn cellControl primaryControl negativeControl">Delete</button>
+            <button id="stCellConfirm${i}" class="controlBtn cellControl secondaryControl positiveControl">Confirm</button>
+            <button id="stCellCancel${i}" class="controlBtn cellControl secondaryControl negativeControl">Cancel</button>
+        </td>`;
         row.innerHTML = rowdata;
         tableBody.appendChild(row);
     }
@@ -129,7 +130,8 @@ function dash() {
 function student() {
     console.log("In Admin Student Page");
     createTable("studentTable", ["Adm.No", "Name", "email", "phone"]);
-    initializeTable('http://localhost:8080/dummy.json');   
+    initializeTable('http://localhost:8080/dummy.json');
+       
 }
 
 function teacher() {
