@@ -201,9 +201,6 @@ body
 .controlBtn:hover{
     border:1px solid rgb(106, 113, 224);
 }
-.searchControl{
-    /* display: none; */
-}
 .positiveControl:hover{
     border: 1px solid rgb(255, 175, 255);
 }
