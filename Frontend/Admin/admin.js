@@ -1,3 +1,20 @@
+// Configuration objects for different tables
+const studentTableConfig = [
+    { title: "Adm.No", key: "admission_number", editable: true },
+    { title: "Name", key: "name", editable: true },
+    { title: "Class", key: "class", editable: true },
+    { title: "Email", key: "email", editable: true },
+    { title: "Phone", key: "phone_no", editable: true }
+];
+
+const teacherTableConfig = [
+    { title: "ID", key: "teacher_id", editable: true },
+    { title: "Name", key: "name", editable: true },
+    { title: "Subject", key: "subject", editable: true },
+    { title: "Email", key: "email", editable: true },
+    { title: "Phone", key: "phone_no", editable: true }
+];
+
 let workingData = [];
 let addedData = [];
 let deletedData = [];
@@ -18,15 +35,14 @@ async function fetchData(url) {
     }
 }
 
-async function initializeTable(url, tableBodyId) {
-    const dataUrl = url;
-    const data = await fetchData(dataUrl);
+async function initializeTable(url, tableBodyId, config) {
+    const data = await fetchData(url);
     if (data) {
-        buildTable(tableBodyId, data);
+        buildTable(tableBodyId, data, config);
     }
 }
 
-function createTable(containerId, columnTitles, tableBodyId, tableHeadId) {
+function createTable(containerId, config, tableBodyId, tableHeadId) {
     const container = document.getElementById(containerId);
     if (!container) {
         console.error(`Container with id "${containerId}" not found.`);
@@ -42,13 +58,19 @@ function createTable(containerId, columnTitles, tableBodyId, tableHeadId) {
     tHead.classList.add('tableHead');
     headerRow.classList.add('tableHeadRow', 'tableRow');
 
-    columnTitles.forEach((title, index = 0) => {
+    config.forEach((col, index) => {
         const th = document.createElement("th");
         th.classList.add('tableHeadCell', 'tableCell');
         th.id = `header${index + 1}`;
-        th.textContent = title;
+        th.textContent = col.title;
         headerRow.appendChild(th);
     });
+
+    // Add the "Options" column header
+    const optionsTh = document.createElement("th");
+    optionsTh.classList.add('tableHeadCell', 'tableCell');
+    optionsTh.textContent = "Options";
+    headerRow.appendChild(optionsTh);
 
     tHead.appendChild(headerRow);
     table.appendChild(tHead);
@@ -61,7 +83,7 @@ function createTable(containerId, columnTitles, tableBodyId, tableHeadId) {
     container.appendChild(table);
 }
 
-function buildTable(tableBodyId, data) {
+function buildTable(tableBodyId, data, config) {
     let tableBody = document.getElementById(tableBodyId);
     if (!tableBody) {
         console.error(`Table with id "${tableBodyId}" not found.`);
@@ -71,234 +93,210 @@ function buildTable(tableBodyId, data) {
     for (let i = 0; i < data.length; i++) {
         let row = document.createElement("tr");
         row.classList.add('tableDataRow', 'tableRow');
-        let rowdata = `
-        <td> ${data[i].admission_number} </td>
-        <td> ${data[i].name} </td>
-        <td> ${data[i].email} </td>
-        <td> ${data[i].phone_no} </td>
-        <td class="options" id="options${i}">
+
+        config.forEach((col, colIndex) => {
+            const cell = document.createElement("td");
+            cell.classList.add('tableCell');
+            cell.textContent = data[i][col.key];
+            row.appendChild(cell);
+        });
+
+        const optionsCell = document.createElement("td");
+        optionsCell.classList.add("options");
+        optionsCell.id = `options${i}`;
+        optionsCell.innerHTML = `
             <button data-testId=${i} id="cellEdit${i}" class="controlBtn cellControl primaryCtrl">Edit</button>
             <button data-testId=${i} id="cellDelete${i}" class="controlBtn cellControl primaryCtrl negativeControl">Delete</button>
             <button data-testId=${i} id="cellConfirm${i}" class="controlBtn cellControl secondaryCtrl positiveControl hidden">Confirm</button>
             <button data-testId=${i} id="cellCancel${i}" class="controlBtn cellControl secondaryCtrl negativeControl hidden">Cancel</button>
-        </td>`;
-        row.innerHTML = rowdata;
+        `;
+        row.appendChild(optionsCell);
         tableBody.appendChild(row);
 
-        document.getElementById(`cellEdit${i}`).addEventListener('click', editCell);
-        document.getElementById(`cellDelete${i}`).addEventListener('click', deleteCell);
-        document.getElementById(`cellConfirm${i}`).addEventListener('click', confirmCell);
-        document.getElementById(`cellCancel${i}`).addEventListener('click', cancelCell);
+        document.getElementById(`cellEdit${i}`).addEventListener('click', () => editCell(i, config));
+        document.getElementById(`cellDelete${i}`).addEventListener('click', () => deleteCell(i, config));
+        document.getElementById(`cellConfirm${i}`).addEventListener('click', () => confirmCell(i, config));
+        document.getElementById(`cellCancel${i}`).addEventListener('click', () => cancelCell(i, config));
     }
 }
 
-function addRow() {
+function addRow(config) {
     const tableBody = document.getElementById('studentTableBody') || document.getElementById('teacherTableBody');
     const newRow = document.createElement('tr');
     newRow.classList.add('tableDataRow', 'tableRow');
 
-    let rowdata = `
-    <td><input type="text" placeholder="Adm.No" /></td>
-    <td><input type="text" placeholder="Name" /></td>
-    <td><input type="text" placeholder="Email" /></td>
-    <td><input type="text" placeholder="Phone" /></td>
-    <td class="options" id="optionsNew">
+    config.forEach(col => {
+        const cell = document.createElement('td');
+        cell.innerHTML = `<input type="text" placeholder="${col.title}" class="editInput"/>`;
+        newRow.appendChild(cell);
+    });
+
+    const optionsCell = document.createElement("td");
+    optionsCell.classList.add("options");
+    optionsCell.id = "optionsNew";
+    optionsCell.innerHTML = `
         <button id="cellConfirmNew" class="controlBtn cellControl secondaryCtrl positiveControl">Confirm</button>
         <button id="cellCancelNew" class="controlBtn cellControl secondaryCtrl negativeControl">Cancel</button>
-    </td>`;
-    newRow.innerHTML = rowdata;
+    `;
+    newRow.appendChild(optionsCell);
     tableBody.insertBefore(newRow, tableBody.firstChild);
 
-    document.getElementById('cellConfirmNew').addEventListener('click', confirmNewRow);
+    document.getElementById('cellConfirmNew').addEventListener('click', () => confirmNewRow(config));
     document.getElementById('cellCancelNew').addEventListener('click', () => newRow.remove());
 }
 
-function confirmNewRow() {
-    const newRow = this.closest('tr');
+function confirmNewRow(config) {
+    const newRow = document.getElementById('cellConfirmNew').closest('tr');
     const inputs = newRow.querySelectorAll('input');
 
-    const admissionNumber = inputs[0].value.trim();
-    const name = inputs[1].value.trim();
-    const email = inputs[2].value.trim();
-    const phoneNo = inputs[3].value.trim();
+    const newData = {};
+    let isValid = true;
 
-    if (!admissionNumber || !name || !email || !phoneNo) {
+    config.forEach((col, index) => {
+        const value = inputs[index].value.trim();
+        if (!value) {
+            isValid = false;
+            return;
+        }
+        newData[col.key] = value;
+    });
+
+    if (!isValid) {
         alert('All fields are required.');
         return;
     }
 
-    const isDuplicate = workingData.some(item => item.admission_number === admissionNumber || item.name === name);
+    const isDuplicate = workingData.some(item => item.admission_number === newData.admission_number || item.name === newData.name);
     if (isDuplicate) {
         alert('Admission number and Name must be unique.');
         return;
     }
 
-    const newData = {
-        admission_number: admissionNumber,
-        name: name,
-        email: email,
-        phone_no: phoneNo
-    };
-
     workingData.push(newData);
     addedData.push(newData);
 
-    newRow.cells[0].textContent = admissionNumber;
-    newRow.cells[1].textContent = name;
-    newRow.cells[2].textContent = email;
-    newRow.cells[3].textContent = phoneNo;
+    config.forEach((col, index) => {
+        newRow.cells[index].textContent = newData[col.key];
+    });
 
-    const optionsCell = newRow.cells[4];
+    const optionsCell = newRow.cells[newRow.cells.length - 1];
     optionsCell.innerHTML = `
-    <button data-testId=${workingData.length - 1} id="cellEdit${workingData.length - 1}" class="controlBtn cellControl primaryCtrl">Edit</button>
-    <button data-testId=${workingData.length - 1} id="cellDelete${workingData.length - 1}" class="controlBtn cellControl primaryCtrl negativeControl">Delete</button>
-    <button data-testId=${workingData.length - 1} id="cellConfirm${workingData.length - 1}" class="controlBtn cellControl secondaryCtrl positiveControl hidden">Confirm</button>
-    <button data-testId=${workingData.length - 1} id="cellCancel${workingData.length - 1}" class="controlBtn cellControl secondaryCtrl negativeControl hidden">Cancel</button>
+        <button data-testId=${workingData.length - 1} id="cellEdit${workingData.length - 1}" class="controlBtn cellControl primaryCtrl">Edit</button>
+        <button data-testId=${workingData.length - 1} id="cellDelete${workingData.length - 1}" class="controlBtn cellControl primaryCtrl negativeControl">Delete</button>
+        <button data-testId=${workingData.length - 1} id="cellConfirm${workingData.length - 1}" class="controlBtn cellControl secondaryCtrl positiveControl hidden">Confirm</button>
+        <button data-testId=${workingData.length - 1} id="cellCancel${workingData.length - 1}" class="controlBtn cellControl secondaryCtrl negativeControl hidden">Cancel</button>
     `;
 
-    document.getElementById(`cellEdit${workingData.length - 1}`).addEventListener('click', editCell);
-    document.getElementById(`cellDelete${workingData.length - 1}`).addEventListener('click', deleteCell);
-    document.getElementById(`cellConfirm${workingData.length - 1}`).addEventListener('click', confirmCell);
-    document.getElementById(`cellCancel${workingData.length - 1}`).addEventListener('click', cancelCell);
+    document.getElementById(`cellEdit${workingData.length - 1}`).addEventListener('click', () => editCell(workingData.length - 1, config));
+    document.getElementById(`cellDelete${workingData.length - 1}`).addEventListener('click', () => deleteCell(workingData.length - 1, config));
+    document.getElementById(`cellConfirm${workingData.length - 1}`).addEventListener('click', () => confirmCell(workingData.length - 1, config));
+    document.getElementById(`cellCancel${workingData.length - 1}`).addEventListener('click', () => cancelCell(workingData.length - 1, config));
 
     console.log('Added Data:', addedData);
 }
 
-function editCell() {
-    let testId = this.getAttribute("data-testId");
-    let row = this.closest("tr");
+function editCell(index, config) {
+    let row = document.querySelector(`[data-testId="${index}"]`).closest("tr");
 
-    let admissionNumber = row.cells[0].textContent.trim();
-    let name = row.cells[1].textContent.trim();
-    let email = row.cells[2].textContent.trim();
-    let phoneNo = row.cells[3].textContent.trim();
+    config.forEach((col, i) => {
+        const value = row.cells[i].textContent.trim();
+        row.cells[i].innerHTML = `<input type="text" value="${value}" placeholder="${col.title}" class="editInput"/>`;
+    });
 
-    row.cells[0].innerHTML = `<input type="text" value="${admissionNumber}" placeholder="${admissionNumber}" />`;
-    row.cells[1].innerHTML = `<input type="text" value="${name}" placeholder="${name}"/>`;
-    row.cells[2].innerHTML = `<input type="text" value="${email}" placeholder="${email}"/>`;
-    row.cells[3].innerHTML = `<input type="text" value="${phoneNo}" placeholder="${phoneNo}"/>`;
-
-    toggleButtons(testId, true, false);
+    toggleButtons(index, true, false);
 }
 
-function deleteCell() {
-    let testId = this.getAttribute("data-testId");
-    let row = this.closest("tr");
+function deleteCell(index, config) {
+    let row = document.querySelector(`[data-testId="${index}"]`).closest("tr");
+    row.classList.add('pending-delete');
 
-    let admissionNumber = row.cells[0].textContent.trim();
-    let name = row.cells[1].textContent.trim();
-    let email = row.cells[2].textContent.trim();
-    let phoneNo = row.cells[3].textContent.trim();
-
-    let deleteData = {
-        admission_number: admissionNumber,
-        name: name,
-        email: email,
-        phone_no: phoneNo
-    };
-
-    deletedData.push(deleteData);
-    workingData = workingData.filter(item => item.admission_number !== admissionNumber);
-
-    row.remove();
-
-    console.log('Deleted Data:', deletedData);
+    toggleButtons(index, false, true);
 }
 
-function confirmCell() {
-    let testId = this.getAttribute("data-testId");
-    let row = this.closest("tr");
-
+function confirmCell(index, config) {
+    let row = document.querySelector(`[data-testId="${index}"]`).closest("tr");
     if (row.classList.contains('pending-delete')) {
         row.remove();
+        const deletedItem = workingData.splice(index, 1)[0];
+        deletedData.push(deletedItem);
+
+        toggleButtons(index, false, false);
+
+        console.log('Deleted Data:', deletedData);
     } else {
-        let oldAdmissionNumber = row.cells[0].querySelector("input").placeholder.trim();
-        let oldName = row.cells[1].querySelector("input").placeholder.trim();
-        let oldEmail = row.cells[2].querySelector("input").placeholder.trim();
-        let oldPhoneNo = row.cells[3].querySelector("input").placeholder.trim();
+        const oldData = {};
+        const newData = {};
 
-        let admissionNumber = row.cells[0].querySelector("input").value.trim();
-        let name = row.cells[1].querySelector("input").value.trim();
-        let email = row.cells[2].querySelector("input").value.trim();
-        let phoneNo = row.cells[3].querySelector("input").value.trim();
+        config.forEach((col, colIndex) => {
+            oldData[col.key] = workingData[index][col.key];
+            newData[col.key] = row.cells[colIndex].querySelector("input").value.trim();
+        });
 
-        const isDuplicate = workingData.some(item => item.admission_number === admissionNumber && item.name === name);
-        if ((admissionNumber !== oldAdmissionNumber || name !== oldName) && isDuplicate) {
+        const isDuplicate = workingData.some((item, idx) => (item.admission_number === newData.admission_number && item.name === newData.name) && idx !== index);
+        if (isDuplicate) {
             alert('Admission number and Name must be unique.');
             return;
         }
 
-        let oldData = {
-            admission_number: oldAdmissionNumber,
-            name: oldName,
-            email: oldEmail,
-            phone_no: oldPhoneNo
-        };
-
-        let newData = {
-            admission_number: admissionNumber,
-            name: name,
-            email: email,
-            phone_no: phoneNo
-        };
-
         updatedData.push({ oldData, newData });
 
-        row.cells[0].textContent = admissionNumber;
-        row.cells[1].textContent = name;
-        row.cells[2].textContent = email;
-        row.cells[3].textContent = phoneNo;
+        config.forEach((col, colIndex) => {
+            row.cells[colIndex].textContent = newData[col.key];
+            workingData[index][col.key] = newData[col.key];
+        });
 
-        toggleButtons(testId, false, false);
+        toggleButtons(index, false, false);
 
         console.log('Updated Data:', updatedData);
     }
 }
 
-function cancelCell() {
-    let testId = this.getAttribute("data-testId");
-    let row = this.closest("tr");
+function cancelCell(index, config) {
+    let row = document.querySelector(`[data-testId="${index}"]`).closest("tr");
 
     if (row.classList.contains('pending-delete')) {
         row.classList.remove('pending-delete');
-        toggleButtons(testId, false, false);
+        toggleButtons(index, false, false);
     } else {
-        let originalData = workingData[testId];
-        row.cells[0].textContent = originalData.admission_number;
-        row.cells[1].textContent = originalData.name;
-        row.cells[2].textContent = originalData.email;
-        row.cells[3].textContent = originalData.phone_no;
+        const originalData = workingData[index];
+        config.forEach((col, colIndex) => {
+            row.cells[colIndex].textContent = originalData[col.key];
+        });
 
-        toggleButtons(testId, false, false);
+        toggleButtons(index, false, false);
     }
 }
 
-function toggleButtons(testId, isEditing, isDeleting) {
-    let editBtn = document.getElementById(`cellEdit${testId}`);
-    let deleteBtn = document.getElementById(`cellDelete${testId}`);
-    let confirmBtn = document.getElementById(`cellConfirm${testId}`);
-    let cancelBtn = document.getElementById(`cellCancel${testId}`);
+function toggleButtons(index, isEditing, isDeleting) {
+    let editBtn = document.getElementById(`cellEdit${index}`);
+    let deleteBtn = document.getElementById(`cellDelete${index}`);
+    let confirmBtn = document.getElementById(`cellConfirm${index}`);
+    let cancelBtn = document.getElementById(`cellCancel${index}`);
 
-    if (isEditing || isDeleting) {
-        editBtn.classList.add('hidden');
-        deleteBtn.classList.add('hidden');
-        confirmBtn.classList.remove('hidden');
-        cancelBtn.classList.remove('hidden');
-    } else {
-        editBtn.classList.remove('hidden');
-        deleteBtn.classList.remove('hidden');
-        confirmBtn.classList.add('hidden');
-        cancelBtn.classList.add('hidden');
-    }
+    if (editBtn && deleteBtn && confirmBtn && cancelBtn) {
+        if (isEditing || isDeleting) {
+            editBtn.classList.add('hidden');
+            deleteBtn.classList.add('hidden');
+            confirmBtn.classList.remove('hidden');
+            cancelBtn.classList.remove('hidden');
+        } else {
+            editBtn.classList.remove('hidden');
+            deleteBtn.classList.remove('hidden');
+            confirmBtn.classList.add('hidden');
+            cancelBtn.classList.add('hidden');
+        }
 
-    if (isDeleting) {
-        document.getElementById(`options${testId}`).closest('tr').classList.add('pending-delete');
-    } else {
-        document.getElementById(`options${testId}`).closest('tr').classList.remove('pending-delete');
+        if (isDeleting) {
+            document.getElementById(`options${index}`).closest('tr').classList.add('pending-delete');
+        } else {
+            document.getElementById(`options${index}`).closest('tr').classList.remove('pending-delete');
+        }
     }
 }
 
-function searchTable(tableBodyId, query) {
+
+
+function searchTable(tableBodyId, query, config) {
     const tableBody = document.getElementById(tableBodyId);
     const escBtn = document.getElementById("searchBtn");
     escBtn.classList.remove('hidden');
@@ -311,14 +309,10 @@ function searchTable(tableBodyId, query) {
     query = query.toLowerCase();
 
     Array.from(rows).forEach(row => {
-        const name = row.cells[1].textContent.toLowerCase();
-        const email = row.cells[2].textContent.toLowerCase();
-        if (name.includes(query) || email.includes(query)) {
-            row.style.display = "";
-        } else {
-            row.style.display = "none";
-        }
+        const isVisible = config.some((col, index) => row.cells[index].textContent.toLowerCase().includes(query));
+        row.style.display = isVisible ? "" : "none";
     });
+
     if (query === "") {
         escBtn.classList.add('hidden');
     }
@@ -331,7 +325,6 @@ function syncData() {
         updated: updatedData
     };
 
-    // Send syncPayload to the server
     fetch('http://localhost:8080/sync', {
         method: 'POST',
         headers: {
@@ -342,7 +335,6 @@ function syncData() {
     .then(response => {
         if (response.ok) {
             console.log('Data synced successfully');
-            // Clear the arrays after successful sync
             addedData = [];
             deletedData = [];
             updatedData = [];
@@ -381,28 +373,28 @@ function dash() {
 
 function student() {
     console.log("In Admin Student Page");
-    createTable("studentTable", ["Adm.No", "Name", "email", "phone"], "studentTableBody", "studentTableHead");
-    initializeTable('http://localhost:8080/dummy.json', "studentTableBody");
+    createTable("studentTable", studentTableConfig, "studentTableBody", "studentTableHead");
+    initializeTable('http://localhost:8080/dummy.json', "studentTableBody", studentTableConfig);
 
     const searchInput = document.getElementById('stSearchInput');
     const searchBtn = document.getElementById('searchBtn');
     searchInput.addEventListener('keyup', () => {
-        searchTable('studentTableBody', searchInput.value);
+        searchTable('studentTableBody', searchInput.value, studentTableConfig);
     });
     searchBtn.addEventListener('click', () => {
         searchInput.value = '';
-        searchTable('studentTableBody', searchInput.value);
+        searchTable('studentTableBody', searchInput.value, studentTableConfig);
     });
     window.addEventListener('keydown', function (e) {
         if (e.key === "Escape") {
             searchInput.value = '';
-            searchTable('studentTableBody', searchInput.value);
+            searchTable('studentTableBody', searchInput.value, studentTableConfig);
         }
     });
 
     const addButton = document.getElementById('table-add');
     if (addButton) {
-        addButton.addEventListener('click', addRow);
+        addButton.addEventListener('click', () => addRow(studentTableConfig));
     }
 
     const syncButton = document.getElementById('table-sync');
@@ -413,28 +405,28 @@ function student() {
 
 function teacher() {
     console.log("In Admin Teacher Page");
-    createTable("teacherTable", ["Adm.No", "Name", "email", "phone"], "teacherTableBody", "teacherTableHead");
-    initializeTable('http://localhost:8080/dummy.json', "teacherTableBody");
+    createTable("teacherTable", teacherTableConfig, "teacherTableBody", "teacherTableHead");
+    initializeTable('http://localhost:8080/dummy.json', "teacherTableBody", teacherTableConfig);
 
     const searchInput = document.getElementById('teSearchInput');
     const searchBtn = document.getElementById('searchBtn');
     searchInput.addEventListener('keyup', () => {
-        searchTable('teacherTableBody', searchInput.value);
+        searchTable('teacherTableBody', searchInput.value, teacherTableConfig);
     });
     searchBtn.addEventListener('click', () => {
         searchInput.value = '';
-        searchTable('teacherTableBody', searchInput.value);
+        searchTable('teacherTableBody', searchInput.value, teacherTableConfig);
     });
     window.addEventListener('keydown', function (e) {
         if (e.key === "Escape") {
             searchInput.value = '';
-            searchTable('teacherTableBody', searchInput.value);
+            searchTable('teacherTableBody', searchInput.value, teacherTableConfig);
         }
     });
 
     const addButton = document.getElementById('table-add');
     if (addButton) {
-        addButton.addEventListener('click', addRow);
+        addButton.addEventListener('click', () => addRow(teacherTableConfig));
     }
 
     const syncButton = document.getElementById('table-sync');

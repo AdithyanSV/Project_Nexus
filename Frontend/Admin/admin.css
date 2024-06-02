@@ -187,6 +187,19 @@ body
 .searchBar:hover {
     border:1px solid rgb(106, 113, 224);
 }
+.editInput {
+    height: 4vh;
+    min-width: 2vw;
+    max-width: 10vw;
+    background: rgb(30, 27, 30);
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    color: aliceblue;
+    border-radius: 5px;
+    padding: 1vh;
+}
+.editInput:hover {
+    border:1px solid rgb(106, 113, 224);
+}
 .controlBtn{
     width: 10vw;
     height: 4vh;
@@ -213,7 +226,7 @@ body
 }
 
 .tableContainer {
-    max-height: 90vh;
+    max-height: 80vh;
     width: 95vw;
     overflow-x: auto;
     margin: 0 auto;
