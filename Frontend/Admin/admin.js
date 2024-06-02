@@ -120,6 +120,8 @@ function buildTable(tableBodyId, data, config) {
     }
 }
 
+let currentRowIndex = workingData.length; // Keep track of the current row index
+
 function addRow(config) {
     const tableBody = document.getElementById('studentTableBody') || document.getElementById('teacherTableBody');
     const newRow = document.createElement('tr');
@@ -133,20 +135,22 @@ function addRow(config) {
 
     const optionsCell = document.createElement("td");
     optionsCell.classList.add("options");
-    optionsCell.id = "optionsNew";
+    optionsCell.id = `optionsNew${currentRowIndex}`;
     optionsCell.innerHTML = `
-        <button id="cellConfirmNew" class="controlBtn cellControl secondaryCtrl positiveControl">Confirm</button>
-        <button id="cellCancelNew" class="controlBtn cellControl secondaryCtrl negativeControl">Cancel</button>
+        <button id="cellConfirmNew${currentRowIndex}" class="controlBtn cellControl secondaryCtrl positiveControl">Confirm</button>
+        <button id="cellCancelNew${currentRowIndex}" class="controlBtn cellControl secondaryCtrl negativeControl">Cancel</button>
     `;
     newRow.appendChild(optionsCell);
     tableBody.insertBefore(newRow, tableBody.firstChild);
 
-    document.getElementById('cellConfirmNew').addEventListener('click', () => confirmNewRow(config));
-    document.getElementById('cellCancelNew').addEventListener('click', () => newRow.remove());
+    document.getElementById(`cellConfirmNew${currentRowIndex}`).addEventListener('click', () => confirmNewRow(config));
+    document.getElementById(`cellCancelNew${currentRowIndex}`).addEventListener('click', () => newRow.remove());
+
+    currentRowIndex++; // Increment the index for the next new row
 }
 
 function confirmNewRow(config) {
-    const newRow = document.getElementById('cellConfirmNew').closest('tr');
+    const newRow = document.getElementById(`cellConfirmNew${currentRowIndex - 1}`).closest('tr');
     const inputs = newRow.querySelectorAll('input');
 
     const newData = {};
@@ -180,17 +184,18 @@ function confirmNewRow(config) {
     });
 
     const optionsCell = newRow.cells[newRow.cells.length - 1];
+    const newRowId = workingData.length - 1;
     optionsCell.innerHTML = `
-        <button data-testId=${workingData.length - 1} id="cellEdit${workingData.length - 1}" class="controlBtn cellControl primaryCtrl">Edit</button>
-        <button data-testId=${workingData.length - 1} id="cellDelete${workingData.length - 1}" class="controlBtn cellControl primaryCtrl negativeControl">Delete</button>
-        <button data-testId=${workingData.length - 1} id="cellConfirm${workingData.length - 1}" class="controlBtn cellControl secondaryCtrl positiveControl hidden">Confirm</button>
-        <button data-testId=${workingData.length - 1} id="cellCancel${workingData.length - 1}" class="controlBtn cellControl secondaryCtrl negativeControl hidden">Cancel</button>
+        <button data-testId=${newRowId} id="cellEdit${newRowId}" class="controlBtn cellControl primaryCtrl">Edit</button>
+        <button data-testId=${newRowId} id="cellDelete${newRowId}" class="controlBtn cellControl primaryCtrl negativeControl">Delete</button>
+        <button data-testId=${newRowId} id="cellConfirm${newRowId}" class="controlBtn cellControl secondaryCtrl positiveControl hidden">Confirm</button>
+        <button data-testId=${newRowId} id="cellCancel${newRowId}" class="controlBtn cellControl secondaryCtrl negativeControl hidden">Cancel</button>
     `;
 
-    document.getElementById(`cellEdit${workingData.length - 1}`).addEventListener('click', () => editCell(workingData.length - 1, config));
-    document.getElementById(`cellDelete${workingData.length - 1}`).addEventListener('click', () => deleteCell(workingData.length - 1, config));
-    document.getElementById(`cellConfirm${workingData.length - 1}`).addEventListener('click', () => confirmCell(workingData.length - 1, config));
-    document.getElementById(`cellCancel${workingData.length - 1}`).addEventListener('click', () => cancelCell(workingData.length - 1, config));
+    document.getElementById(`cellEdit${newRowId}`).addEventListener('click', () => editCell(newRowId, config));
+    document.getElementById(`cellDelete${newRowId}`).addEventListener('click', () => deleteCell(newRowId, config));
+    document.getElementById(`cellConfirm${newRowId}`).addEventListener('click', () => confirmCell(newRowId, config));
+    document.getElementById(`cellCancel${newRowId}`).addEventListener('click', () => cancelCell(newRowId, config));
 
     console.log('Added Data:', addedData);
 }
@@ -208,13 +213,22 @@ function editCell(index, config) {
 
 function deleteCell(index, config) {
     let row = document.querySelector(`[data-testId="${index}"]`).closest("tr");
-    row.classList.add('pending-delete');
-
-    toggleButtons(index, false, true);
+    if (row) {
+        row.classList.add('pending-delete');
+        toggleButtons(index, false, true);
+    } else {
+        console.error(`Row with index ${index} not found.`);
+    }
 }
+
 
 function confirmCell(index, config) {
     let row = document.querySelector(`[data-testId="${index}"]`).closest("tr");
+    if (!row) {
+        console.error(`Row with index ${index} not found.`);
+        return;
+    }
+
     if (row.classList.contains('pending-delete')) {
         row.remove();
         const deletedItem = workingData.splice(index, 1)[0];
@@ -251,6 +265,7 @@ function confirmCell(index, config) {
     }
 }
 
+
 function cancelCell(index, config) {
     let row = document.querySelector(`[data-testId="${index}"]`).closest("tr");
 
@@ -286,13 +301,27 @@ function toggleButtons(index, isEditing, isDeleting) {
             cancelBtn.classList.add('hidden');
         }
 
-        if (isDeleting) {
-            document.getElementById(`options${index}`).closest('tr').classList.add('pending-delete');
+        let optionsCell = document.getElementById(`options${index}`);
+        if (optionsCell) {
+            let row = optionsCell.closest('tr');
+            if (row) {
+                if (isDeleting) {
+                    row.classList.add('pending-delete');
+                } else {
+                    row.classList.remove('pending-delete');
+                }
+            } else {
+                console.error(`Row for options cell with index ${index} not found.`);
+            }
         } else {
-            document.getElementById(`options${index}`).closest('tr').classList.remove('pending-delete');
+            console.error(`Options cell with index ${index} not found.`);
         }
+    } else {
+        console.error(`Buttons for index ${index} not found.`);
     }
 }
+
+
 
 
 
