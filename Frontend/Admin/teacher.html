@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS-Schedule</title>
+    <title>NEXUS-Teacher</title>
     <link rel="stylesheet" href="admin.css">
     <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
@@ -22,27 +22,19 @@
             <div class="icon2">icon2</div>
         </div>
     </div>
-    <div class="schedule">
-        <div class="tile"> 
-            <div class="title">
-                <h3>A</h3>
-            </div>
+    <div class="tableOptions">
+        <div class="search">
+            <input type="text" class="searchBar" id="teSearchInput" placeholder="Search">
+            <button id="searchBtn" class="controlBtn searchControl hidden">Esc</button>
         </div>
-        <div class="tile">
-            <div class="title">
-                <h3>B</h3>
-            </div>
+        <div class="control">
+            <button id="table-sync" class="controlBtn primaryControl">Sync</button>
+            <button id="table-add" class="controlBtn primaryControl">Add</button>
+            <!-- <button  id="table-save" class="controlBtn secondaryControl positiveControl hidden">Save</button>
+            <button id="table-cancel" class="controlBtn secondaryControl negativeControl hidden">Cancel</button> -->
         </div>
-        <div class="tile">
-            <div class="title">
-                <h3>C</h3>
-            </div>
-        </div>
-        <div class="tile">
-            <div class="title">
-                <h3>D</h3>
-            </div>
-        </div>
+    </div>
+    <div class="tableContainer" id="teacherTable">
     </div>
     <script src="admin.js"></script>
 </body>

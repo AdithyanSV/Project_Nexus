@@ -328,9 +328,20 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('popstate', handlePageLoad);
 });
 
+
+let chartData = [
+    { subject: "OS", value: 95 },
+    { subject: "CVPE", value: 20 },
+    { subject: "SE", value: 60 },
+    { subject: "DCN", value: 75 },
+    { subject: "OOPS", value: 90 },
+    { subject: "IP", value: 75 },
+    { subject: "UHV", value: 50 }
+];
+
 function dash() {
     console.log("In Student Dashboard");
-    verticalBarChart(95, 100, "OS", "#verticalChart1");
+    verticalBarChart(chartData[0].value, 100, chartData[0].subject, "#verticalChart1");
     verticalBarChart(20, 100, "CVPE", "#verticalChart2");
     verticalBarChart(60, 100, "SE", "#verticalChart3");
     verticalBarChart(75, 100, "DCN", "#verticalChart4");
