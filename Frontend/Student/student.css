@@ -8,37 +8,18 @@ body
 {
     width:100vw ;
     min-height: 100vh;
-    background-color: black;
-    color: white;
+    background-color: rgb(2,2,5);
+    color: rgb(235,233,252);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    scrollbar-width: thin;
-    scrollbar-color: rgb(106, 113, 224), rgba(187, 185, 188, 0.25);
-}
-::-webkit-scrollbar {
-    width: 1vh;
-    height: 1vh;
-}
-::-webkit-scrollbar-track {
-    background: rgba(187, 185, 188, 0.25);
-    border-radius: 5px;
-}
-::-webkit-scrollbar-thumb {
-    background: rgba(187, 185, 188, 0.25);
-    border-radius: 5px;
-    border: 2px solid rgba(187, 185, 188, 0.25);
-}
-::-webkit-scrollbar-thumb:hover {
-    background: rgb(106, 113, 224);
 }
 .icon-bar {
     position: fixed;
     left: -250px;
     width: 250px; /* Adjust the width as needed */
     height: 100%; /* Full height */
-    background-color: #EE37C5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,22 +35,27 @@ body
     height: 100%;/* Full width of the sidebar */
     padding: 25px ;
     padding-left: 40px;
-    border-top: 5px solid white;
-    border-bottom: solid white 5px;
+    padding-top: 40px;
+    border-top: 5px solid rgb(235,233,252);
+    border-bottom: solid rgb(235,233,252) 5px;
+    background-color:rgb(2,2,5);
     box-sizing: border-box;
     text-align: center;
     transition:  .4s ;
-    color: white;
-    font-size: 39px;
+    color: rgb(235,233,252);
+    font-size: 28px;
+    text-decoration: none;
   }
   
   .icon-bar a:hover {
-    background-color: #000;
+    background-color: rgb(255,175,255);
     padding-left: 50px;
+    color: ;
   }
   
-  .active {
+  .active a {
     background-color: #ffaeff;
+    color: rgb(187,185,188);
   }
   
   #check {
@@ -79,7 +65,7 @@ body
   label #btn, label #cancel {
     position: absolute;
     cursor: pointer;
-    background-color: blueviolet;
+    background-color: #6a71e0;
     border-radius: 3px;
     /*color: white;
     padding: 10px 20px;
@@ -185,7 +171,7 @@ body
 }
 .active a
 {
-   
+   color: #6a71e0;
 }
 .dash
 {
@@ -233,7 +219,7 @@ body
     padding: 1.5vw;
     border:1px solid rgb(36, 36, 36); 
     border-radius: 12px;
-    background-color: rgb(30, 30, 30);
+    background-color: rgb(17,17,17);
     box-shadow: 0.2vw 0.2vh 10px rgb(83, 80, 80);
     display: flex;
     flex-direction: column;
@@ -263,7 +249,7 @@ body
  .more
 {
     text-decoration: none;
-    color: magenta;
+    color: #EE37C5;
     display: flex;
 } 
 .radialChart
