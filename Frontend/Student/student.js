@@ -76,14 +76,14 @@ function RadialChart(currentValue, maxValue, location) {
         .style("fill", "white")
         .text(`of ${maxValue}`);
 };
-//Sall Radial Chart
+//Small Radial Chart
 function smallRadialChart(currentValue, maxValue, location) {
 
     // Set up the SVG canvas dimensions
     const container = d3.select(location);
     const width = container.node().clientWidth;
     const height = container.node().clientHeight;
-    const margin = Math.min(width, height) * 0.09; // 10% of the smallest dimension
+    const margin = Math.min(width, height) * 0.14; // 10% of the smallest dimension
     const radius = Math.min(width, height) / 2 - margin;
 
     // Set up the SVG canvas
@@ -139,9 +139,9 @@ function smallRadialChart(currentValue, maxValue, location) {
     // Text for the current value
     svg.append("text")
         .attr("text-anchor", "middle")
-        .attr("dy", ".21em")
+        .attr("dy", ".32em")
         .attr("class", "current-value")
-        .style("font-size", "75px")
+        .style("font-size", "50px")
         .style("fill", "white")
         .text(currentValue);
 
@@ -372,6 +372,14 @@ function attendance() {
     horizontalBarChart(50, 100, "date-8", "#horizontalChart8");
     horizontalBarChart(50, 100, "date-9", "#horizontalChart9");
     horizontalBarChart(50, 100, "date-10", "#horizontalChart10");
+    smallRadialChart(6, 10, "#sRadialChart1");
+    smallRadialChart(4, 10, "#sRadialChart2");
+    smallRadialChart(2, 10, "#sRadialChart3");
+    smallRadialChart(9, 10, "#sRadialChart4");
+    smallRadialChart(8, 10, "#sRadialChart5");
+    smallRadialChart(7, 10, "#sRadialChart6");
+    smallRadialChart(5, 10, "#sRadialChart7");
+    smallRadialChart(3, 10, "#sRadialChart8");
 }
 
 function curriculum() {
