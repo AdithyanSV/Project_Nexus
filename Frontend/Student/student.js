@@ -1,3 +1,71 @@
+// Example JSON data for each page
+const dashData = {
+    "registerNumber": "123456",
+    "charts": [
+        { "subject": "OS", "value": 95 },
+        { "subject": "CVPE", "value": 20 },
+        { "subject": "SE", "value": 60 },
+        { "subject": "DCN", "value": 75 },
+        { "subject": "OOPS", "value": 90 },
+        { "subject": "IP", "value": 75 },
+        { "subject": "UHV", "value": 50 },
+        { "currentValue": 56, "maxValue": 100},
+        { "currentValue": 4, "maxValue": 10}
+    ]
+};
+
+const attendanceData = {
+    "registerNumber": "123456",
+    "verticalCharts": [
+        { "subject": "OS", "value": 95 },
+        { "subject": "CVPE", "value": 20 },
+        { "subject": "SE", "value": 60 },
+        { "subject": "DCN", "value": 75 },
+        { "subject": "OOPS", "value": 90 },
+        { "subject": "IP", "value": 75 },
+        { "subject": "UHV", "value": 50 }
+    ],
+    "horizontalCharts": [
+        { "date": "date-1", "value": 95 },
+        { "date": "date-2", "value": 20 },
+        { "date": "date-3", "value": 60 },
+        { "date": "date-4", "value": 75 },
+        { "date": "date-5", "value": 90 },
+        { "date": "date-6", "value": 75 },
+        { "date": "date-7", "value": 50 },
+        { "date": "date-8", "value": 50 },
+        { "date": "date-9", "value": 50 },
+        { "date": "date-10", "value": 50 }
+    ],
+    "smallRadialCharts": [
+        { "currentValue": 6, "maxValue": 10, "id": "sRadialChart1" },
+        { "currentValue": 4, "maxValue": 10, "id": "sRadialChart2" },
+        { "currentValue": 2, "maxValue": 10, "id": "sRadialChart3" },
+        { "currentValue": 9, "maxValue": 10, "id": "sRadialChart4" },
+        { "currentValue": 8, "maxValue": 10, "id": "sRadialChart5" },
+        { "currentValue": 7, "maxValue": 10, "id": "sRadialChart6" },
+        { "currentValue": 5, "maxValue": 10, "id": "sRadialChart7" },
+        { "currentValue": 3, "maxValue": 10, "id": "sRadialChart8" }
+    ]
+};
+
+const curriculumData = {
+    "registerNumber": "123456",
+    // Add curriculum-specific data here
+};
+
+const scheduleData = {
+    "registerNumber": "123456",
+    // Add schedule-specific data here
+};
+
+const marksData = {
+    "registerNumber": "123456",
+    "radialCharts": [
+        { "currentValue": 4, "maxValue": 10, "id": "radialChart2" }
+    ]
+};
+
 //Normal Radial Chart
 function RadialChart(currentValue, maxValue, location) {
 
