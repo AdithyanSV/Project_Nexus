@@ -1,3 +1,71 @@
+// Example JSON data for each page
+const dashData = {
+    "registerNumber": "123456",
+    "charts": [
+        { "subject": "OS", "value": 95 },
+        { "subject": "CVPE", "value": 20 },
+        { "subject": "SE", "value": 60 },
+        { "subject": "DCN", "value": 75 },
+        { "subject": "OOPS", "value": 90 },
+        { "subject": "IP", "value": 75 },
+        { "subject": "UHV", "value": 50 },
+        { "currentValue": 56, "maxValue": 100},
+        { "currentValue": 4, "maxValue": 10}
+    ]
+};
+
+const attendanceData = {
+    "registerNumber": "123456",
+    "verticalCharts": [
+        { "subject": "OS", "value": 95 },
+        { "subject": "CVPE", "value": 20 },
+        { "subject": "SE", "value": 60 },
+        { "subject": "DCN", "value": 75 },
+        { "subject": "OOPS", "value": 90 },
+        { "subject": "IP", "value": 75 },
+        { "subject": "UHV", "value": 50 }
+    ],
+    "horizontalCharts": [
+        { "date": "date-1", "value": 95 },
+        { "date": "date-2", "value": 20 },
+        { "date": "date-3", "value": 60 },
+        { "date": "date-4", "value": 75 },
+        { "date": "date-5", "value": 90 },
+        { "date": "date-6", "value": 75 },
+        { "date": "date-7", "value": 50 },
+        { "date": "date-8", "value": 50 },
+        { "date": "date-9", "value": 50 },
+        { "date": "date-10", "value": 50 }
+    ],
+    "smallRadialCharts": [
+        { "currentValue": 6, "maxValue": 10, "id": "sRadialChart1" },
+        { "currentValue": 4, "maxValue": 10, "id": "sRadialChart2" },
+        { "currentValue": 2, "maxValue": 10, "id": "sRadialChart3" },
+        { "currentValue": 9, "maxValue": 10, "id": "sRadialChart4" },
+        { "currentValue": 8, "maxValue": 10, "id": "sRadialChart5" },
+        { "currentValue": 7, "maxValue": 10, "id": "sRadialChart6" },
+        { "currentValue": 5, "maxValue": 10, "id": "sRadialChart7" },
+        { "currentValue": 3, "maxValue": 10, "id": "sRadialChart8" }
+    ]
+};
+
+const curriculumData = {
+    "registerNumber": "123456",
+    // Add curriculum-specific data here
+};
+
+const scheduleData = {
+    "registerNumber": "123456",
+    // Add schedule-specific data here
+};
+
+const marksData = {
+    "registerNumber": "123456",
+    "radialCharts": [
+        { "currentValue": 4, "maxValue": 10, "id": "radialChart2" }
+    ]
+};
+
 //Normal Radial Chart
 function RadialChart(currentValue, maxValue, location) {
 
@@ -76,14 +144,14 @@ function RadialChart(currentValue, maxValue, location) {
         .style("fill", "white")
         .text(`of ${maxValue}`);
 };
-//Sall Radial Chart
+//Small Radial Chart
 function smallRadialChart(currentValue, maxValue, location) {
 
     // Set up the SVG canvas dimensions
     const container = d3.select(location);
     const width = container.node().clientWidth;
     const height = container.node().clientHeight;
-    const margin = Math.min(width, height) * 0.09; // 10% of the smallest dimension
+    const margin = Math.min(width, height) * 0.14; // 10% of the smallest dimension
     const radius = Math.min(width, height) / 2 - margin;
 
     // Set up the SVG canvas
@@ -139,9 +207,9 @@ function smallRadialChart(currentValue, maxValue, location) {
     // Text for the current value
     svg.append("text")
         .attr("text-anchor", "middle")
-        .attr("dy", ".21em")
+        .attr("dy", ".32em")
         .attr("class", "current-value")
-        .style("font-size", "75px")
+        .style("font-size", "50px")
         .style("fill", "white")
         .text(currentValue);
 
@@ -372,6 +440,14 @@ function attendance() {
     horizontalBarChart(50, 100, "date-8", "#horizontalChart8");
     horizontalBarChart(50, 100, "date-9", "#horizontalChart9");
     horizontalBarChart(50, 100, "date-10", "#horizontalChart10");
+    smallRadialChart(6, 10, "#sRadialChart1");
+    smallRadialChart(4, 10, "#sRadialChart2");
+    smallRadialChart(2, 10, "#sRadialChart3");
+    smallRadialChart(9, 10, "#sRadialChart4");
+    smallRadialChart(8, 10, "#sRadialChart5");
+    smallRadialChart(7, 10, "#sRadialChart6");
+    smallRadialChart(5, 10, "#sRadialChart7");
+    smallRadialChart(3, 10, "#sRadialChart8");
 }
 
 function curriculum() {
