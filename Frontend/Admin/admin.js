@@ -1,10 +1,11 @@
 // Configuration objects for different tables
 const studentTableConfig = [
-    { title: "Adm.No", key: "admission_number", editable: true },
+    { title: "Reg.No", key: "register_no", editable: true },
     { title: "Name", key: "name", editable: true },
-    { title: "Class", key: "class", editable: true },
+    { title: "DoB", key: "date_of_birth", editable: true },
+    { title: "Age", key: "age", editable: true },
     { title: "Email", key: "email", editable: true },
-    { title: "Phone", key: "phone_no", editable: true }
+    { title: "Type", key: "usertype", editable: true }
 ];
 
 const teacherTableConfig = [
