@@ -343,7 +343,7 @@ body
 }
     label #btn {
         display: block;
-
+        top: 27px;
     }
     .dash
     {
@@ -380,6 +380,11 @@ body
     .attendance{
         margin-left: 2vw;
         
+    }
+    .icon-bar
+    {
+        width: 250px;
+        height: 100%;
     }
     
 }
