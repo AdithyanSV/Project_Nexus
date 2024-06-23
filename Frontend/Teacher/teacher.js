@@ -1,6 +1,5 @@
 //Normal Radial Chart
 function RadialChart(currentValue, maxValue, label, location) {
-
     // Set up the SVG canvas dimensions
     const container = d3.select(location);
     const width = container.node().clientWidth;
@@ -25,17 +24,6 @@ function RadialChart(currentValue, maxValue, label, location) {
         .style("stroke", "#333")
         .style("stroke-width", "10px");
 
-    // Data
-    // const currentValue = 4;
-    // const maxValue = 10;
-
-    // Arc generator
-    const arc = d3.arc()
-        .innerRadius(radius-5)
-        .outerRadius(radius+5)
-        .startAngle(-Math.PI)
-        .endAngle((2 * Math.PI) * (currentValue / maxValue) - Math.PI);
-
     // Gradient for the progress arc
     const gradient = svg.append("defs")
         .append("linearGradient")
@@ -53,37 +41,63 @@ function RadialChart(currentValue, maxValue, label, location) {
         .attr("offset", "100%")
         .attr("stop-color", "#FFAEFF");
 
-    // Progress arc
-    svg.append("path")
-        .attr("d", arc)
-        .style("fill", "url(#gradient)");
+    // Arc generator
+    const arc = d3.arc()
+        .innerRadius(radius - 5)
+        .outerRadius(radius + 5)
+        .startAngle(-Math.PI);
+
+    const arcPath = svg.append("path")
+        .datum({ endAngle: -Math.PI }) // start angle at -Math.PI (no progress)
+        .style("fill", "url(#gradient)")
+        .attr("d", arc);
 
     // Text for the current value
-    svg.append("text")
+    const currentValueText = svg.append("text")
         .attr("text-anchor", "middle")
         .attr("dy", ".21em")
         .attr("class", "current-value")
         .style("font-size", "75px")
         .style("fill", "white")
-        .text(currentValue);
+        .text(0);
 
-    // Text for the maximum value
+    // Text for the label
     svg.append("text")
         .attr("text-anchor", "middle")
         .attr("dy", "3em")
-        .attr("class", "max-value")
+        .attr("class", "label")
         .style("font-size", "18px")
         .style("fill", "white")
         .text(`${label}`);
-};
-//Sall Radial Chart
-function smallRadialChart(currentValue, maxValue, location) {
 
+    arcPath.transition()
+        .duration(1000)
+        .ease(d3.easeCubicInOut)
+        .attrTween("d", function(d) {
+            const interpolate = d3.interpolate(d.endAngle, (2 * Math.PI) * (currentValue / maxValue) - Math.PI);
+            return function(t) {
+                d.endAngle = interpolate(t);
+                return arc(d);
+            };
+        });
+
+    currentValueText.transition()
+        .duration(1000)
+        .ease(d3.easeCubicInOut)
+        .tween("text", function() {
+            const interpolate = d3.interpolate(0, currentValue);
+            return function(t) {
+                this.textContent = Math.round(interpolate(t));
+            };
+        });
+}
+//Small Radial Chart
+function smallRadialChart(currentValue, maxValue, location) {
     // Set up the SVG canvas dimensions
     const container = d3.select(location);
     const width = container.node().clientWidth;
     const height = container.node().clientHeight;
-    const margin = Math.min(width, height) * 0.09; // 10% of the smallest dimension
+    const margin = Math.min(width, height) * 0.14; // 14% of the smallest dimension
     const radius = Math.min(width, height) / 2 - margin;
 
     // Set up the SVG canvas
@@ -103,21 +117,10 @@ function smallRadialChart(currentValue, maxValue, location) {
         .style("stroke", "#333")
         .style("stroke-width", "6px");
 
-    // Data
-    // const currentValue = 4;
-    // const maxValue = 10;
-
-    // Arc generator
-    const arc = d3.arc()
-        .innerRadius(radius-3)
-        .outerRadius(radius+3)
-        .startAngle(-Math.PI)
-        .endAngle((2 * Math.PI) * (currentValue / maxValue) - Math.PI);
-
     // Gradient for the progress arc
     const gradient = svg.append("defs")
         .append("linearGradient")
-        .attr("id", "gradient")
+        .attr("id", "gradient-small")
         .attr("x1", "0%")
         .attr("y1", "0%")
         .attr("x2", "100%")
@@ -131,29 +134,48 @@ function smallRadialChart(currentValue, maxValue, location) {
         .attr("offset", "100%")
         .attr("stop-color", "#FFAEFF");
 
-    // Progress arc
-    svg.append("path")
-        .attr("d", arc)
-        .style("fill", "url(#gradient)");
+    // Arc generator
+    const arc = d3.arc()
+        .innerRadius(radius - 3)
+        .outerRadius(radius + 3)
+        .startAngle(-Math.PI);
+
+    const arcPath = svg.append("path")
+        .datum({ endAngle: -Math.PI }) // start angle at -Math.PI (no progress)
+        .style("fill", "url(#gradient-small)")
+        .attr("d", arc);
 
     // Text for the current value
-    svg.append("text")
+    const currentValueText = svg.append("text")
         .attr("text-anchor", "middle")
-        .attr("dy", ".21em")
+        .attr("dy", ".32em")
         .attr("class", "current-value")
-        .style("font-size", "75px")
+        .style("font-size", "50px")
         .style("fill", "white")
-        .text(currentValue);
+        .text(0);
 
-    // // Text for the maximum value
-    // svg.append("text")
-    //     .attr("text-anchor", "middle")
-    //     .attr("dy", "3em")
-    //     .attr("class", "max-value")
-    //     .style("font-size", "18px")
-    //     .style("fill", "white")
-    //     .text(`of ${maxValue}`);
-};
+    // Animate the progress arc and text
+    arcPath.transition()
+        .duration(1000)
+        .ease(d3.easeCubicInOut) 
+        .attrTween("d", function(d) {
+            const interpolate = d3.interpolate(d.endAngle, (2 * Math.PI) * (currentValue / maxValue) - Math.PI);
+            return function(t) {
+                d.endAngle = interpolate(t);
+                return arc(d);
+            };
+        });
+
+    currentValueText.transition()
+        .duration(1000)
+        .ease(d3.easeCubicInOut) 
+        .tween("text", function() {
+            const interpolate = d3.interpolate(0, currentValue);
+            return function(t) {
+                this.textContent = Math.round(interpolate(t));
+            };
+        });
+}
 //Vertical Bar Chart
 function verticalBarChart(currentValue, maxValue, subject, location) {
     // Set up the SVG canvas dimensions
@@ -199,15 +221,15 @@ function verticalBarChart(currentValue, maxValue, subject, location) {
         .attr("fill", "#333");
 
     // Create the progress bar
-    chartGroup.append("rect")
+    const progressBar = chartGroup.append("rect")
         .attr("x", innerWidth / 2 - 20)
-        .attr("y", innerHeight * (1 - currentValue / maxValue))
+        .attr("y", innerHeight)
         .attr("width", 10)
-        .attr("height", innerHeight * (currentValue / maxValue))
+        .attr("height", 0)
         .attr("fill", "url(#barGradient)");
 
     // Add current value text
-    chartGroup.append("text")
+    const currentValueText = chartGroup.append("text")
         .attr("x", innerWidth / 2 - 25)
         .attr("y", 15)
         .attr("text-anchor", "middle")
@@ -215,7 +237,7 @@ function verticalBarChart(currentValue, maxValue, subject, location) {
         .style("font-size", "14px")
         .style("fill", "white")
         .attr("transform", `rotate(-90, ${innerWidth / 2 - 25}, ${15})`)
-        .text(`${((currentValue / maxValue) * 100).toFixed(0)}%`);
+        .text('0%');
 
     // Add label text
     chartGroup.append("text")
@@ -228,10 +250,27 @@ function verticalBarChart(currentValue, maxValue, subject, location) {
         .style("fill", "white")
         .attr("transform", `rotate(-90, ${innerWidth / 2 - 25}, ${innerHeight - 15})`)
         .text(subject);
+
+    // Animate the progress bar
+    progressBar.transition()
+        .duration(1000)
+        .ease(d3.easeCubicInOut) 
+        .attr("y", innerHeight * (1 - currentValue / maxValue))
+        .attr("height", innerHeight * (currentValue / maxValue));
+
+    // Animate the current value text
+    currentValueText.transition()
+        .duration(1000)
+        .ease(d3.easeCubicInOut) 
+        .tween("text", function() {
+            const interpolate = d3.interpolate(0, (currentValue / maxValue) * 100);
+            return function(t) {
+                this.textContent = `${Math.round(interpolate(t))}%`;
+            };
+        });
 }
 //Horizontal Bar Chart
 function horizontalBarChart(currentValue, maxValue, subject, location) {
-
     // Set up the SVG canvas dimensions
     const container = d3.select(location);
     const width = container.node().clientWidth;
@@ -275,32 +314,49 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
         .attr("fill", "#333");
 
     // Create the progress bar
-    chartGroup.append("rect")
+    const progressBar = chartGroup.append("rect")
         .attr("x", 0)
         .attr("y", innerHeight / 2 - 5)
-        .attr("width", innerWidth * (currentValue / maxValue))
+        .attr("width", 0) // Start with 0 width for animation
         .attr("height", 10)
         .attr("fill", "url(#barGradient)");
 
-
-    chartGroup.append("text")
-        .attr("x", innerWidth)  // Fixed at the rightmost side
-        .attr("y", innerHeight / 2 - 10)  // Center vertically
-        .attr("text-anchor", "end")  // Align text to the end (right)
+    // Add current value text
+    const currentValueText = chartGroup.append("text")
+        .attr("x", innerWidth) // Start with 0 position for animation
+        .attr("y", innerHeight / 2 - 10) // Center vertically
+        .attr("text-anchor", "end") // Align text to the end (right)
         .attr("class", "current-value")
         .style("font-size", "14px")
         .style("fill", "white")
-        .text(`${((currentValue / maxValue) * 100).toFixed(0)}%`);
+        .text('0%'); // Start with 0% for animation
 
     // Add label text to the left of the progress bar
     chartGroup.append("text")
-        .attr("x", 0)  // Position to the left of the progress bar
-        .attr("y", innerHeight / 2 - 10)  // Center vertically
+        .attr("x", 0) // Position to the left of the progress bar
+        .attr("y", innerHeight / 2 - 10) // Center vertically
         .attr("text-anchor", "start")
         .attr("class", "label")
         .style("font-size", "14px")
         .style("fill", "white")
         .text(subject);
+
+    // Animate the progress bar
+    progressBar.transition()
+        .duration(1000)
+        .ease(d3.easeCubicInOut) 
+        .attr("width", innerWidth * (currentValue / maxValue));
+
+    // Animate the current value text
+    currentValueText.transition()
+        .duration(1000)
+        .ease(d3.easeCubicInOut) 
+        .tween("text", function() {
+            const interpolate = d3.interpolate(0, (currentValue / maxValue) * 100);
+            return function(t) {
+                this.textContent = `${Math.round(interpolate(t))}%`;
+            };
+        });
 }
 
 
