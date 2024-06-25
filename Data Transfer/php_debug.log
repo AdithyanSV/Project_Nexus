@@ -1,0 +1,8 @@
+[2024-06-19 07:10:38] Raw Input: {"type":"login","id":"1000","name":"John"}
+[2024-06-19 07:10:38] Response: {"status":"error","message":"Unknown type: login"}
+[2024-06-19 07:10:38] Raw Input: {"type":"farewell","name":"John"}
+[2024-06-19 07:10:38] Raw Input: {"type":"info"}
+[2024-06-19 07:10:38] Raw Input: {"name":"John"}
+[2024-06-19 07:10:38] Response: {"status":"success","message":"Goodbye, John!"}
+[2024-06-19 07:10:38] Response: {"status":"success","data":{"name":"John","received":true}}
+[2024-06-19 07:10:38] Response: {"status":"success","info":{"server_time":"2024-06-19 07:10:38","server_name":"Zen"}}

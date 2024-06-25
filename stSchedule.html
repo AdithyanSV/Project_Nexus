@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS-Schedule</title>
+    <link rel="stylesheet" href="student.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navelement navlogo">
+            <h2>NEXUS</h2>
+        </div>
+        <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-align-justify button" id="btn" class="button"></i>
+      <i class="fa fa-remove" id="cancel" class="button"></i>
+    </label>
+  <div class="icon-bar">
+    <a class="active" href="stDash.html">Dashboard</a> 
+    <a href="stAttendance.html">Attendance</a> 
+    <a href="stCurriculum.html">Curriculum</a> 
+    <a href="stSchedule.html">Schedule</a>
+    <a href="stMarks.html">Marks</a> 
+  </div>
+  <section></section>
+        <div class="navelement navlinks">
+            <div class="link" ><a href="stDash.html">Dashboard</a></div>
+            <div class="link"><a href="stAttendance.html">Attendance</a></div>
+            <div class="link"><a href="stCurriculum.html">Curriculum</a></div>
+            <div class="link active"><a href="stSchedule.html">Schedule</a></div>
+            <div class="link"><a href="stMarks.html">Marks</a></div>
+        </div>
+        <div class="navelement navicons">
+            <div class="icon1">
+                <i class="fa fa-bell-o"></i>
+            </div>
+            <div class="icon2">
+                <i class="fa fa-user-circle-o"></i>
+            </div>
+        </div>
+    </div>
+    <div class="schedule">
+        <div class="tile cspan3 rspan2"> 
+            <div class="title">
+                <h3>A</h3>
+            </div>
+        </div>
+        <div class="tile rspan3">
+            <div class="title">
+                <h3>B</h3>
+            </div>
+        </div>
+        <div class="tile cspan3">
+            <div class="title">
+                <h3>C</h3>
+            </div>
+        </div>
+        <!-- <div class="tile cspan2">
+            <div class="title">
+                <h3>D</h3>
+            </div>
+        </div> -->
+    </div>
+</body>
+</html>
