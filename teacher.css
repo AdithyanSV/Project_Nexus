@@ -69,6 +69,12 @@ body
     justify-content: end;
     display: grid;
     grid-template-columns:50px 50px ;
+    height: 10vh;
+}
+.icon 
+{
+    height: 3vh;
+    width: 5vw;
 }
 .link{
     align-items: center;
@@ -83,7 +89,7 @@ body
 }
 .active a
 {
-    color: rgb(111, 39, 180);
+    color: #6a71e0;;
 }
 .dash
 {
