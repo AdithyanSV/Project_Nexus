@@ -216,8 +216,9 @@ body
 {
     body {
         height: 89vh;
-        width:95vw ;
+        width:88svw ;
         margin-left: 2vw;
+        justify-content: flex-start;
     }
     .dash 
     {
@@ -235,6 +236,7 @@ body
         justify-content: space-between;
         align-items: center;
         margin-top: 15px;
+        margin-bottom: 8vh;
     }
     .link
     {

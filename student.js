@@ -13,6 +13,15 @@ const dashData = {
         { "currentValue": 4, "maxValue": 10}
     ]
 };
+//Data with teacher
+const timetableData = [
+    { time: "9:00 - 10:00", subject: "OS", teacher: "Sariga" },
+    { time: "10:00 - 11:00", subject: "CVPD", teacher: "Jolly" },
+    { time: "11:00 - 12:00", subject: "IP", teacher: "Swapna" },
+    { time: "1:00 - 2:00", subject: "SE", teacher: "Priyanka" },
+    { time: "3:00 - 4:00", subject: "DCN", teacher: "Fasna" },
+    { time: "4:00 - 5:00", subject: "OOPS", teacher: "Dhanya" }
+];
 
 const attendanceData = {
     "registerNumber": "123456",
@@ -47,16 +56,6 @@ const attendanceData = {
         { "currentValue": 5, "maxValue": 10, "id": "sRadialChart7" },
         { "currentValue": 3, "maxValue": 10, "id": "sRadialChart8" }
     ]
-};
-
-const curriculumData = {
-    "registerNumber": "123456",
-    // Add curriculum-specific data here
-};
-
-const scheduleData = {
-    "registerNumber": "123456",
-    // Add schedule-specific data here
 };
 
 const marksData = {
@@ -440,6 +439,52 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
         });
 }
 
+function createTimetable(containerId, data) {
+    // Get the container element
+    const container = document.getElementById(containerId);
+    
+    // Create the table element
+    const table = document.createElement('table');
+    table.className = 'stTable';
+    
+    // Create the table header
+    const header = document.createElement('tr');
+    header.className = 'stTableRow';
+    
+    const headerTime = document.createElement('th');
+    headerTime.className = 'stTableHeader';
+    headerTime.textContent = 'Time';
+    
+    const headerSubject = document.createElement('th');
+    headerSubject.className = 'stTableHeader';
+    headerSubject.textContent = 'Subject';
+    
+    header.appendChild(headerTime);
+    header.appendChild(headerSubject);
+    table.appendChild(header);
+    
+    // Create table rows
+    data.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.className = 'stTableRow';
+        
+        const timeCell = document.createElement('td');
+        timeCell.className = 'stTableData';
+        timeCell.textContent = item.time;
+
+        const subjectCell = document.createElement('td');
+        subjectCell.className = 'stTableData';
+        subjectCell.textContent = item.subject;
+        
+        row.appendChild(timeCell);
+        row.appendChild(subjectCell);
+        table.appendChild(row);
+    });
+    
+    // Clear any existing content in the container and append the new table
+    container.innerHTML = '';
+    container.appendChild(table);
+}
 
 document.addEventListener("DOMContentLoaded", () => {   
     function handlePageLoad() {
@@ -465,7 +510,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('popstate', handlePageLoad);
 });
 
-
 let chartData = [
     { subject: "OS", value: 95 },
     { subject: "CVPE", value: 20 },
@@ -479,14 +523,22 @@ let chartData = [
 function dash() {
     console.log("In Student Dashboard");
     verticalBarChart(chartData[0].value, 100, chartData[0].subject, "#verticalChart1");
-    verticalBarChart(20, 100, "CVPE", "#verticalChart2");
-    verticalBarChart(60, 100, "SE", "#verticalChart3");
-    verticalBarChart(75, 100, "DCN", "#verticalChart4");
-    verticalBarChart(90, 100, "OOPS", "#verticalChart5");
-    verticalBarChart(75, 100, "IP", "#verticalChart6");
-    verticalBarChart(50, 100, "UHV", "#verticalChart7");
-    RadialChart(56, 100, "100", "#radialChart1");
+    verticalBarChart(chartData[1].value, 100, chartData[1].subject, "#verticalChart2");
+    verticalBarChart(chartData[2].value, 100, chartData[2].subject, "#verticalChart3");
+    verticalBarChart(chartData[3].value, 100, chartData[3].subject, "#verticalChart4");
+    verticalBarChart(chartData[4].value, 100, chartData[4].subject, "#verticalChart5");
+    verticalBarChart(chartData[5].value, 100, chartData[5].subject, "#verticalChart6");
+    verticalBarChart(chartData[6].value, 100, chartData[6].subject, "#verticalChart7");
+    RadialChart(80, 100, "100", "#radialChart1");
     RadialChart(4, 10, "10", "#radialChart2");
+    createTimetable('timetable', timetableData);
+    verticalBarChart(chartData[0].value, 100, chartData[0].subject, "#verticalChart11");
+    verticalBarChart(chartData[1].value, 100, chartData[1].subject, "#verticalChart12");
+    verticalBarChart(chartData[2].value, 100, chartData[2].subject, "#verticalChart13");
+    verticalBarChart(chartData[3].value, 100, chartData[3].subject, "#verticalChart14");
+    verticalBarChart(chartData[4].value, 100, chartData[4].subject, "#verticalChart15");
+    verticalBarChart(chartData[5].value, 100, chartData[5].subject, "#verticalChart16");
+    verticalBarChart(chartData[6].value, 100, chartData[6].subject, "#verticalChart17");    
 }
 
 function attendance() {
@@ -500,7 +552,7 @@ function attendance() {
     verticalBarChart(50, 100, "UHV", "#verticalChart7");
     RadialChart(56, 100, "100", "#radialChart1");
     horizontalBarChart(95, 100, "date-1", "#horizontalChart1");
-    horizontalBarChart(20, 100, "date-2", "#horizontalChart2");
+    horizontalBarChart(20, 100, "date-8765432", "#horizontalChart2");
     horizontalBarChart(60, 100, "date-3", "#horizontalChart3");
     horizontalBarChart(75, 100, "date-4", "#horizontalChart4");
     horizontalBarChart(90, 100, "date-5", "#horizontalChart5");
