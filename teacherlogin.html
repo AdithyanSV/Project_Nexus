@@ -9,15 +9,15 @@
         <h2>Menu</h2>
         <ul>
             <li><a href="login.html">Student login</a></li>
-            <li><a href="teacherlogin.html">Teacher login</a></li>
+            <li><a href="#add-teacher">Teacher login</a></li>
         </ul>
     </div>  
     <div class="container">
         <div class="subcontainer">
             <!-- Signin Screen -->
-            <form class="form signIn">
+            <form class="form signIn" action="teacherlogin.php" method="POST">
                 <div class="title">
-                    <h1 class="heading">Let's Go.</h1>
+                    <h1 class="heading">Teacher login</h1>
                     <p class="details">Log in with your username and password, or use the other options</p>
                 </div>
                 <div class="inField mailIn">
@@ -30,25 +30,67 @@
                         <input id="loginPassword" class="inBox" type="password" name="password" placeholder="*************" required>
                     </div>
                 </div>
+                <div class="dropdown-container">
+                    <label for="userType">User Type:</label>
+                    <select id="userType" name="userType">
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
                 <div class="checkbox-container">
                     <p class="details">Keep me signed in</p>
                     <input type="checkbox" name="keepSignedIn">
                     <span class="checkmark"></span>
                 </div>
                 <div class="login">
-                    <button class="loginBtn" type="button">Login</button>
+                    <button class="loginBtn" type="submit">Login</button>
                 </div>
                 <div class="options">
                     <div class="details optionText">
                         <p>Don't have an account?</p>
-                        <a href="register.html" class="details optionLink" id="signup"> Sign Up</a>
+                        <a href="#" class="details optionLink" id="signup"> Sign Up</a>
                     </div>
                     <a href="#" class="details optionLink" id="forgot">Forgot Password?</a>
                 </div>
             </form>
 
-         
-
+            <!-- Register Screen -->
+            <form class="form register" action="register.php" method="POST">
+                <div class="title">
+                    <h1 class="heading">Let's Start.</h1>
+                    <p class="details">Fill in the details below</p>
+                </div>
+                <div class="inField mailIn">
+                    <p class="text">Email</p>
+                    <input id="registerEmail" class="inBox" type="email" name="email" placeholder="Eg: xyz@email.com" required>
+                </div>
+                <div class="inField mailIn">
+                    <p class="text">Register Number</p>
+                    <input id="registerNumber" class="inBox" type="number" name="registerNumber" placeholder="Eg: 20021685" required>
+                </div>
+                <div class="inField passIn">
+                    <p class="text">Password</p>
+                    <div class="password">
+                        <input id="registerPassword" class="inBox" type="password" name="password" placeholder="*************" required>
+                    </div>
+                </div>
+                <div class="inField passIn">
+                    <p class="text">Confirm Password</p>
+                    <div class="password">
+                        <input id="confirmPassword" class="inBox" type="password" name="confirmPassword" placeholder="*************" required>
+                    </div>
+                </div>
+                <div class="login">
+                    <button class="loginBtn" type="submit">Sign Up</button>
+                </div>
+                <div class="options">
+                    <div class="details optionText">
+                        <p>Already have an account?</p>
+                        <a href="#" class="details optionLink" id="login"> Log in</a>
+                    </div>
+                </div>
+            </form>
 
             <!-- Forgot Screen -->
             <form class="form forgot">
@@ -61,7 +103,7 @@
                     <input id="verifyMail" class="inBox" type="email" name="email" placeholder="Eg: xyz@email.com" required>
                 </div>
                 <div class="login">
-                    <button id="verifyMailBtn" class="loginBtn" type="button">Reset Password</button>
+                    <button class="loginBtn" type="button">Reset Password</button>
                     <a href="#" class="details optionLink goback" id="goBack">Go Back</a>
                 </div>
             </form>
@@ -82,6 +124,6 @@
             <label class="nexus">NEXUS</label>
         </div>
     </div>
-    <script src="login.js"></script>
+    <script src="teacherlogin.js"></script>
 </body>
 </html>

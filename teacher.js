@@ -544,7 +544,6 @@ function createTimetable(containerId, data) {
     container.appendChild(table);
 }
 
-// Example JSON data
 const attendanceData = [
     {
         classIndex: 0,
@@ -553,24 +552,169 @@ const attendanceData = [
         attendance: ['P', 'P', 'P', 'P', 'P']
     },
     {
-        classIndex: 1,
+        classIndex: 0,
         rollNo: '2',
-        name: 'Student B',
+        name: 'Student C',
         attendance: ['P', 'P', 'P', 'P', 'P']
     },
     {
         classIndex: 0,
         rollNo: '3',
-        name: 'Student C',
+        name: 'Liam Smith',
+        attendance: ['P', 'A', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 0,
+        rollNo: '4',
+        name: 'Emma Johnson',
+        attendance: ['P', 'P', 'A', 'P', 'P']
+    },
+    {
+        classIndex: 0,
+        rollNo: '5',
+        name: 'Noah Brown',
+        attendance: ['P', 'P', 'P', 'A', 'P']
+    },
+    {
+        classIndex: 0,
+        rollNo: '6',
+        name: 'Olivia Jones',
+        attendance: ['P', 'P', 'P', 'P', 'A']
+    },
+    {
+        classIndex: 0,
+        rollNo: '7',
+        name: 'Elijah Garcia',
+        attendance: ['A', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 1,
+        rollNo: '1',
+        name: 'Student B',
         attendance: ['P', 'P', 'P', 'P', 'P']
     },
     {
         classIndex: 1,
-        rollNo: '4',
+        rollNo: '2',
         name: 'Student D',
         attendance: ['P', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 1,
+        rollNo: '3',
+        name: 'William Martinez',
+        attendance: ['P', 'A', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 1,
+        rollNo: '4',
+        name: 'Sophia Rodriguez',
+        attendance: ['P', 'P', 'A', 'P', 'P']
+    },
+    {
+        classIndex: 1,
+        rollNo: '5',
+        name: 'James Hernandez',
+        attendance: ['P', 'P', 'P', 'A', 'P']
+    },
+    {
+        classIndex: 1,
+        rollNo: '6',
+        name: 'Isabella Wilson',
+        attendance: ['P', 'P', 'P', 'P', 'A']
+    },
+    {
+        classIndex: 1,
+        rollNo: '7',
+        name: 'Benjamin Anderson',
+        attendance: ['A', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 2,
+        rollNo: '1',
+        name: 'Mason Thomas',
+        attendance: ['P', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 2,
+        rollNo: '2',
+        name: 'Mia Lee',
+        attendance: ['P', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 2,
+        rollNo: '3',
+        name: 'Lucas White',
+        attendance: ['P', 'A', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 2,
+        rollNo: '4',
+        name: 'Amelia Harris',
+        attendance: ['P', 'P', 'A', 'P', 'P']
+    },
+    {
+        classIndex: 2,
+        rollNo: '5',
+        name: 'Henry Clark',
+        attendance: ['P', 'P', 'P', 'A', 'P']
+    },
+    {
+        classIndex: 2,
+        rollNo: '6',
+        name: 'Harper Lewis',
+        attendance: ['P', 'P', 'P', 'P', 'A']
+    },
+    {
+        classIndex: 2,
+        rollNo: '7',
+        name: 'Alexander Walker',
+        attendance: ['A', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 3,
+        rollNo: '1',
+        name: 'Ethan Hall',
+        attendance: ['P', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 3,
+        rollNo: '2',
+        name: 'Ava Young',
+        attendance: ['P', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 3,
+        rollNo: '3',
+        name: 'Sebastian King',
+        attendance: ['P', 'A', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 3,
+        rollNo: '4',
+        name: 'Charlotte Scott',
+        attendance: ['P', 'P', 'A', 'P', 'P']
+    },
+    {
+        classIndex: 3,
+        rollNo: '5',
+        name: 'Jack Green',
+        attendance: ['P', 'P', 'P', 'A', 'P']
+    },
+    {
+        classIndex: 3,
+        rollNo: '6',
+        name: 'Ella Adams',
+        attendance: ['P', 'P', 'P', 'P', 'A']
+    },
+    {
+        classIndex: 3,
+        rollNo: '7',
+        name: 'Daniel Baker',
+        attendance: ['A', 'P', 'P', 'P', 'P']
     }
 ];
+
 
 // Example class options
 const classOptions = ['Class W', 'Class X', 'Class Y', 'Class Z'];

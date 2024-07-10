@@ -1,0 +1,129 @@
+<!DOCTYPE >
+<html>
+<head>
+    <title>login page</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://iconsvg.xyz/">
+            
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#add-student">Add Student</a></li>
+            <li><a href="#add-teacher">Add Teacher</a></li>
+        </ul>
+    </div>  
+    <div class="container">
+        
+        <div class="subcontainer">
+            <!-- Signin Screen -->
+            <form class="form signIn">
+                <div class="title">
+                    <h1 class="heading">Let's Go.</h1>
+                    <p class="details">Log in with your username and password, or use the other options </p>
+                </div>
+                <div class="inField mailIn">
+                    <p class="text">Email</p>
+                    <input class="inBox" type="email" placeholder="xyz@email.com">
+                </div>
+                <div class="inField passIn">
+                    <p class="text">Password</p>
+                    <div class="password">
+                        <input class="inBox" type="password" placeholder="*************" >
+                        <svg id="togglePass" class="eye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                </div>
+                <div class="checkbox-container">
+                    <p class="details">Keep me signed in</p>
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </div>
+                <div class="login">
+                    <button class="loginBtn" type="submit">Login</button>
+                </div>
+                <div class="options">
+                    <div class="details optionText">
+                        <p>Don't have an account? </p><pre> </pre>
+                        <a href="#" class="details optionLink" id="signup"> Sign Up</a>
+                    </div>
+                    <a href="#" class="details optionLink" id="forgot">Forgot Password?</a>
+                </div>
+            </form>
+
+                <!-- Register Screen -->
+            <form class="form register">
+                <div class="title">
+                    <h1 class="heading">Let's Start.</h1>
+                    <p class="details">fill in the details below</p>
+                </div>
+                <div class="inField mailIn">
+                    <p class="text">Email</p>
+                    <input class="inBox" type="email" placeholder="Eg: xyz@email.com">
+                </div>
+                <div class="inField mailIn">
+                    <p class="text">Register Number</p>
+                    <input class="inBox" type="number" placeholder="Eg: 20021685">
+                </div>
+                <div class="inField passIn">
+                    <p class="text">Password</p>
+                    <div class="password">
+                        <input class="inBox" type="password" placeholder="*************" >
+                        <svg id="togglePass" class="eye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                </div>
+                <div class="inField passIn">
+                    <p class="text">Confirm Password</p>
+                    <div class="password">
+                        <input class="inBox" type="password" placeholder="*************" >
+                        <svg id="togglePass" class="eye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                </div>
+                <div class="login">
+                    <button class="loginBtn" type="submit">Sign Up</button>
+                </div>
+                <div class="options">
+                    <div class="details optionText">
+                        <p>Already have an account? </p><pre> </pre>
+                        <a href="#" class="details optionLink" id="login"> Log in</a>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Forgot Screen -->
+            <form class="form forgot">
+                <div class="title">
+                    <h1 class="heading">Forgot Something?</h1>
+                    <p class="details">No worries,we will send you a password reset link.</p>
+                </div>
+                <div class="inField mailIn">
+                    <p class="text">Email</p>
+                    <input id="verifyMail" class="inBox" type="email" placeholder="Eg: xyz@email.com">
+                </div>
+                <div class="login">
+                    <button id="verifyMailBtn" class="loginBtn" type="submit" onclick="validateEmail()">Reset Password</button>
+                    <a href="#" class="details optionLink goback" id="goBack">Go Back</a>
+                </div>
+            </form>
+
+            <!-- We got you Screen -->
+            <form class="form goBack">
+                <div class="title">
+                    <h1 class="heading">We got you...</h1>
+                    <p class="details">If you have an active account, an email with the password reset will be sent to you soon.</p>
+                </div>
+                <div class="login">
+                    <button class="loginBtn" type="submit" id="goBackBtn">Go Back</button>
+                </div>
+            </form>
+        </div>
+        <!-- Nexus Banner -->
+        <div class="subcontainer nexuscon">
+            <label class="nexus">NEXUS</label>
+        </div>
+    </div>
+    <script src="login.js">
+    </script>
+    </body>
+</html>
