@@ -42,6 +42,32 @@
                 <div class="radialChart" id="radialChart-4"></div>
             </div>
         </div>
+    </div>
+    <div class="attendanceTable">
+        <div class="tableOptions">
+            <div class="search">
+                <input type="text" class="searchBar" id="stSearchInput" placeholder="Search">
+                <button id="searchBtn" class="controlBtn searchControl hidden">Esc</button>
+            </div>
+            <div class="control">
+                <button id="table-reset" class="controlBtn primaryControl">Reset</button>
+                <button id="table-submit" class="controlBtn primaryControl">Submit</button>
+            </div>
+        </div>
+        <div class="tableContainer" id="attendanceTableContainer">
+            <table class="table" id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th class="smol">Roll No</th>
+                        <th>Student Name</th>
+                        <th colspan="5">Attendance</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceTableBody" >
+                </tbody>
+            </table>
+        </div>
+    </div>
 
         <!-- <div class="tile rspan3"> 
             <div class="title">

@@ -8,6 +8,20 @@
       {
         "label": "off"
       }
-    ]
-  }
+    ],
+    "no-inline-styles": "off"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_ff <= 126",
+    "not firefox <= 127",
+    "not samsung <= 25",
+    "not and_chr <= 125",
+    "not chrome <= 126",
+    "not edge <= 125",
+    "not ios_saf <= 17.5",
+    "not opera <= 110",
+    "not safari <= 17.5"
+  ]
 }

@@ -486,6 +486,53 @@ function createTimetable(containerId, data) {
     container.appendChild(table);
 }
 
+function createStatusDisplay(containerId, subjectName, currentValue, maxValue) {
+    // Determine status and class based on currentValue and maxValue
+    let status = '';
+    let statusClass = '';
+    if (currentValue / maxValue < 0.33) {
+        status = 'BAD';
+        statusClass = 'statusBad';
+    } else if (currentValue / maxValue < 0.66) {
+        status = 'OK';
+        statusClass = 'statusOk';
+    } else {
+        status = 'GOOD';
+        statusClass = 'statusGood';
+    }
+
+    // Get the container element
+    const container = document.getElementById(containerId);
+
+    // Create subject label
+    const subjectLabel = document.createElement('h3');
+    subjectLabel.textContent = subjectName;
+    
+    // Create status container
+    const statusContainer = document.createElement('div');
+    statusContainer.className = 'attStatus';
+
+    // Create status text label
+    const statusTextLabel = document.createElement('p');
+    statusTextLabel.textContent = 'Status:';
+
+    // Create status value element
+    const statusValue = document.createElement('p');
+    statusValue.className = 'status';
+    statusValue.classList.add(status);
+    statusValue.classList.add(statusClass);
+    statusValue.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+
+    // Append elements to the status container
+    statusContainer.appendChild(statusTextLabel);
+    statusContainer.appendChild(statusValue);
+
+    // Clear any existing content in the container and append the new elements
+    container.innerHTML = '';
+    container.appendChild(subjectLabel);
+    container.appendChild(statusContainer);
+}
+
 document.addEventListener("DOMContentLoaded", () => {   
     function handlePageLoad() {
         const page = window.location.pathname;
@@ -530,8 +577,8 @@ function dash() {
     verticalBarChart(chartData[5].value, 100, chartData[5].subject, "#verticalChart6");
     verticalBarChart(chartData[6].value, 100, chartData[6].subject, "#verticalChart7");
     RadialChart(80, 100, "100", "#radialChart1");
-    RadialChart(4, 10, "10", "#radialChart2");
     createTimetable('timetable', timetableData);
+    RadialChart(4, 10, "10", "#radialChart2");
     verticalBarChart(chartData[0].value, 100, chartData[0].subject, "#verticalChart11");
     verticalBarChart(chartData[1].value, 100, chartData[1].subject, "#verticalChart12");
     verticalBarChart(chartData[2].value, 100, chartData[2].subject, "#verticalChart13");
@@ -543,16 +590,16 @@ function dash() {
 
 function attendance() {
     console.log("In Student Attendance Page");
-    verticalBarChart(95, 100, "OS", "#verticalChart1");
-    verticalBarChart(20, 100, "CVPE", "#verticalChart2");
-    verticalBarChart(60, 100, "SE", "#verticalChart3");
-    verticalBarChart(75, 100, "DCN", "#verticalChart4");
-    verticalBarChart(90, 100, "OOPS", "#verticalChart5");
-    verticalBarChart(75, 100, "IP", "#verticalChart6");
-    verticalBarChart(50, 100, "UHV", "#verticalChart7");
+    verticalBarChart(chartData[0].value, 100, chartData[0].subject, "#verticalChart1");
+    verticalBarChart(chartData[1].value, 100, chartData[1].subject, "#verticalChart2");
+    verticalBarChart(chartData[2].value, 100, chartData[2].subject, "#verticalChart3");
+    verticalBarChart(chartData[3].value, 100, chartData[3].subject, "#verticalChart4");
+    verticalBarChart(chartData[4].value, 100, chartData[4].subject, "#verticalChart5");
+    verticalBarChart(chartData[5].value, 100, chartData[5].subject, "#verticalChart6");
+    verticalBarChart(chartData[6].value, 100, chartData[6].subject, "#verticalChart7");
     RadialChart(56, 100, "100", "#radialChart1");
     horizontalBarChart(95, 100, "date-1", "#horizontalChart1");
-    horizontalBarChart(20, 100, "date-8765432", "#horizontalChart2");
+    horizontalBarChart(20, 100, "date-12", "#horizontalChart2");
     horizontalBarChart(60, 100, "date-3", "#horizontalChart3");
     horizontalBarChart(75, 100, "date-4", "#horizontalChart4");
     horizontalBarChart(90, 100, "date-5", "#horizontalChart5");
@@ -568,7 +615,13 @@ function attendance() {
     smallRadialChart(8, 10, "#sRadialChart5");
     smallRadialChart(7, 10, "#sRadialChart6");
     smallRadialChart(5, 10, "#sRadialChart7");
-    smallRadialChart(3, 10, "#sRadialChart8");
+    createStatusDisplay('statusDisplay1', chartData[0].subject, chartData[0].value, 100);
+    createStatusDisplay('statusDisplay2', chartData[1].subject, chartData[1].value, 100);
+    createStatusDisplay('statusDisplay3', chartData[2].subject, chartData[2].value, 100);
+    createStatusDisplay('statusDisplay4', chartData[3].subject, chartData[3].value, 100);
+    createStatusDisplay('statusDisplay5', chartData[4].subject, chartData[4].value, 100);
+    createStatusDisplay('statusDisplay6', chartData[5].subject, chartData[5].value, 100);
+    createStatusDisplay('statusDisplay7', chartData[6].subject, chartData[6].value, 100);
 }
 
 function curriculum() {

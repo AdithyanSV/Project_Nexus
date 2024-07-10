@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family:arial ;
  }
+html{
+    scroll-behavior: smooth;
+    width: 99svw;
+}
 body
 {
     width:100%;
@@ -103,11 +107,15 @@ body
 }
 .attendance{
     width: 96vw;
-    height: 130vh;
+    height: 35vh;
     display: grid;
     grid-template-columns: repeat(4, 22.5vw);
     grid-gap: 2vw;
-    grid-template-rows: repeat(3, 22.5vw);
+    margin-bottom: 5vh;
+    margin-top: 2vh;
+}
+.attendanceTable{
+    height: 100vh;
 }
 .curriculum
 {
@@ -212,6 +220,186 @@ body
     height: 3vw;
     width: 18vw;
 }
+.tableOptions {
+    width: 95vw;
+    padding: 1vh;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search {
+    width: 55vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchBar {
+    width: 55vw;
+    height: 4vh;
+    background: rgba(187, 185, 188, 0.05);
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    color: aliceblue;
+    border-radius: 5px;
+    padding: 1vh;
+    /* margin-right: 1vh; */
+}
+.searchBar:hover {
+    border:1px solid rgb(106, 113, 224);
+}
+.editInput {
+    height: 4vh;
+    min-width: 2vw;
+    max-width: 10vw;
+    background: rgb(30, 27, 30);
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    color: aliceblue;
+    border-radius: 5px;
+    padding: 1vh;
+}
+.editInput:hover {
+    border:1px solid rgb(106, 113, 224);
+}
+.controlBtn{
+    width: 10vw;
+    height: 4vh;
+    background: rgba(187, 185, 188, 0.05);
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    color: aliceblue;
+    border-radius: 5px;
+    padding: 1vh;
+    margin-left: 1vh;
+    cursor: pointer;
+}
+.controlBtn:hover{
+    border:1px solid rgb(106, 113, 224);
+}
+.positiveControl:hover{
+    border: 1px solid rgb(255, 175, 255);
+}
+.negativeControl:hover{
+    border: 1px solid rgb(238, 55, 197);
+}
+.cellControl{
+    width: 5vw;
+    height: 4vh;
+}
+.tableSelect{
+    width: 10vw;
+    height: 4vh;
+    background: rgba(187, 185, 188, 0.05);
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    color: aliceblue;
+    border-radius: 5px;
+    padding: 1vh;
+    margin-left: 1vh;
+    cursor: pointer;
+}
+.tableSelect option {
+    background-color: #333; /* Background color */
+    color: white; /* Text color */
+}
+
+/* For changing the hover and focus effect (not all browsers support this) */
+.tableSelect:focus, .tableSelect:hover {
+    background-color: #444; /* Background color when focused/hovered */
+}
+.smol{
+    width: 15vw
+}
+
+
+.tableContainer {
+    max-height: 80vh;
+    width: 95vw;
+    overflow-x: auto;
+    margin: 0 auto;
+}
+.table {
+    width: 95vw;
+    overflow-x: auto;
+    margin: 0 auto;
+}
+table{
+    min-width: fit-content;
+    border-radius: 15px;
+    overflow: hidden;
+    border-spacing: 0;
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td {
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+    padding: 3vh;
+}
+th {
+    padding: 3vh;
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+    background-color: rgb(30, 27, 30);
+    position: sticky;
+    top: 0;
+}
+tr:nth-child(odd) {
+    background-color: rgba(187, 185, 188, 0.05);
+}
+tr:hover {
+    background-color: rgb(194, 190, 195, 0.25);
+    border:2px solid rgb(106, 113, 224);
+}
+
+.tableHead {
+    width: 100%;
+}
+.tableBody {
+    width: 100%;
+}
+.tableRow {
+    height: 10vh;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+.options{
+    padding: 0;
+    width: 14vw;
+}
+.content2 table{
+    min-width: fit-content;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    border-spacing: 0;
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.teTableRow td{
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+    padding: 1vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    text-align: right;
+}
+.teTableRow th{
+    font-size: large;
+    padding: 2vh;
+    border: 1px solid rgba(187, 185, 188, 0.25);
+    border-collapse: collapse;
+    background-color: rgb(30, 27, 30);
+    position: sticky;
+    top: 0;
+}
+.header a
+    {
+        width: 8vw;
+    }
+
+
 @media only screen and (max-width: 1024px)
 {
     body {

@@ -359,6 +359,234 @@ function horizontalBarChart(currentValue, maxValue, subject, location) {
         });
 }
 
+let updatedAttendance = {}; // Global variable to store updated attendance data
+
+function generateAttendanceTable(containerId, data, classOptions, buttonId) {
+    const container = document.getElementById(containerId);
+
+    // Helper function to get past four working days
+    function getPastFourWorkingDays() {
+        const days = [];
+        let count = 0;
+        let date = new Date();
+
+        while (count < 4) {
+            date.setDate(date.getDate() - 1);
+            if (date.getDay() !== 0 && date.getDay() !== 6) { // Skip Sundays (0) and Saturdays (6)
+                days.push(new Date(date));
+                count++;
+            }
+        }
+
+        return days.reverse(); // Reverse to have the earliest date first
+    }
+
+    // Function to create the table header row
+    function createHeaderRow() {
+        const headerRow = document.createElement('tr');
+
+        // Create the select element for class selection
+        const classSelect = document.createElement('select');
+        classSelect.name = 'class';
+        classSelect.id = 'classSelect';
+        classSelect.className = 'tableSelect';
+
+        classOptions.forEach((optionText, index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = optionText;
+            classSelect.appendChild(option);
+        });
+
+        // Append select element to the first header cell
+        const classHeaderCell = document.createElement('th');
+        classHeaderCell.appendChild(classSelect);
+        headerRow.appendChild(classHeaderCell);
+
+        // Append empty cell
+        headerRow.appendChild(document.createElement('th'));
+
+        // Get the current date and past four working days
+        const pastFourDays = getPastFourWorkingDays();
+        const currentDate = new Date();
+        pastFourDays.push(currentDate);
+
+        // Append date headers
+        pastFourDays.forEach((date, i) => {
+            const dateHeaderCell = document.createElement('th');
+            dateHeaderCell.className = 'date';
+            dateHeaderCell.id = 'date' + (i + 1);
+            dateHeaderCell.textContent = date.toLocaleDateString();
+            headerRow.appendChild(dateHeaderCell);
+        });
+
+        return headerRow;
+    }
+
+    // Function to populate table based on selected class
+    function populateTable(selectedClassIndex) {
+        // Clear existing table body content
+        container.innerHTML = '';
+
+        // Append the header row to the tbody
+        container.appendChild(createHeaderRow());
+
+        // Filter data based on selected class
+        const filteredData = data.filter(item => item.classIndex === selectedClassIndex);
+
+        // Create table rows
+        filteredData.forEach((item, index) => {
+            const row = document.createElement('tr');
+
+            const rollNoCell = document.createElement('td');
+            rollNoCell.className = 'attendanceData rollNo';
+            rollNoCell.id = 'rollNo' + (index + 1);
+            rollNoCell.textContent = item.rollNo;
+            row.appendChild(rollNoCell);
+
+            const nameCell = document.createElement('td');
+            nameCell.className = 'attendanceData name';
+            nameCell.id = 'name' + (index + 1);
+            nameCell.textContent = item.name;
+            row.appendChild(nameCell);
+
+            for (let i = 1; i <= 5; i++) {
+                const attendanceCell = document.createElement('td');
+                attendanceCell.className = 'attendanceData';
+                attendanceCell.id = 'attendance' + (index + 1) + '.' + i;
+
+                // Create checkbox for marking attendance
+                const attendanceCheckbox = document.createElement('input');
+                attendanceCheckbox.type = 'checkbox';
+                attendanceCheckbox.className = 'attendanceCheckbox';
+                attendanceCheckbox.checked = true; // Check by default
+
+                // Update attendance data on change
+                attendanceCheckbox.addEventListener('change', (event) => {
+                    item.attendance[i - 1] = event.target.checked ? 'P' : 'A';
+                });
+
+                attendanceCell.appendChild(attendanceCheckbox);
+                row.appendChild(attendanceCell);
+            }
+
+            container.appendChild(row);
+        });
+    }
+
+    // Add event listener to class select to filter students
+    container.addEventListener('change', (event) => {
+        if (event.target.id === 'classSelect') {
+            const selectedClassIndex = parseInt(event.target.value, 10);
+            populateTable(selectedClassIndex);
+        }
+    });
+
+    // Populate the table with the first class by default
+    populateTable(0);
+
+    // Function to export attendance data to JSON variable
+    function exportAttendanceData() {
+        const selectedClassIndex = parseInt(document.getElementById('classSelect').value, 10);
+        const filteredData = data.filter(item => item.classIndex === selectedClassIndex);
+        updatedAttendance = JSON.stringify(filteredData, null, 2);
+        console.log(updatedAttendance); // Log the updatedAttendance to console
+    }
+
+    // Add event listener to export button
+    document.getElementById(buttonId).addEventListener('click', exportAttendanceData);
+}
+
+function createTimetable(containerId, data) {
+    // Get the container element
+    const container = document.getElementById(containerId);
+    
+    // Create the table element
+    const table = document.createElement('table');
+    table.className = 'teTable';
+    
+    // Create the table header
+    const header = document.createElement('tr');
+    header.className = 'teTableRow';
+    
+    const headerTime = document.createElement('th');
+    headerTime.className = 'teTableHeader';
+    headerTime.textContent = 'Time';
+    
+    const headerSubject = document.createElement('th');
+    headerSubject.className = 'teTableHeader';
+    headerSubject.textContent = 'class';
+    
+    header.appendChild(headerTime);
+    header.appendChild(headerSubject);
+    table.appendChild(header);
+    
+    // Create table rows
+    data.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.className = 'teTableRow';
+        
+        const timeCell = document.createElement('td');
+        timeCell.className = 'teTableData';
+        timeCell.textContent = item.time;
+
+        const subjectCell = document.createElement('td');
+        subjectCell.className = 'teTableData';
+        subjectCell.textContent = item.class;
+        
+        row.appendChild(timeCell);
+        row.appendChild(subjectCell);
+        table.appendChild(row);
+    });
+    
+    // Clear any existing content in the container and append the new table
+    container.innerHTML = '';
+    container.appendChild(table);
+}
+
+// Example JSON data
+const attendanceData = [
+    {
+        classIndex: 0,
+        rollNo: '1',
+        name: 'Student A',
+        attendance: ['P', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 1,
+        rollNo: '2',
+        name: 'Student B',
+        attendance: ['P', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 0,
+        rollNo: '3',
+        name: 'Student C',
+        attendance: ['P', 'P', 'P', 'P', 'P']
+    },
+    {
+        classIndex: 1,
+        rollNo: '4',
+        name: 'Student D',
+        attendance: ['P', 'P', 'P', 'P', 'P']
+    }
+];
+
+// Example class options
+const classOptions = ['Class W', 'Class X', 'Class Y', 'Class Z'];
+
+//Data with teacher
+const timetableData = [
+    { time: "9:00 - 10:00", class: "IT-A-S4" },
+    { time: "10:00 - 11:00", class: "IT-B-S4" },
+    { time: "11:00 - 12:00", class: "IT-B-S4" },
+    { time: "1:00 - 2:00", class: "IT-A-S6" },
+    { time: "3:00 - 4:00", class: "IT-A-S6" },
+    { time: "4:00 - 5:00", class: "IT-b-S6" }
+];
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {   
     function handlePageLoad() {
@@ -389,6 +617,7 @@ function dash() {
     RadialChart(56, 100, "Class X", "#radialChart1");
     RadialChart(4, 100, "Class X", "#radialChart2");
     RadialChart(90, 100, "Class X", "#radialChart3");
+    createTimetable('timetable', timetableData);
 }
 
 function attendance() {
@@ -397,6 +626,7 @@ function attendance() {
     RadialChart(4, 100, "Class X", "#radialChart-2");
     RadialChart(90, 100, "Class X", "#radialChart-3");
     RadialChart(75, 100, "Class X", "#radialChart-4");
+    generateAttendanceTable('attendanceTableBody', attendanceData, classOptions, 'table-submit');
 }
 
 function curriculum() {
