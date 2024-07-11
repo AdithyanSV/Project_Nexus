@@ -6,10 +6,12 @@
 }
 html{
     scroll-behavior: smooth;
+    width:100svw ;
+
 }
 body
 {
-    width:98.5svw ;
+    width: 100%;
     min-height: 100vh;
     background-color: rgb(2,2,5);
     color: rgb(235,233,252);
@@ -34,6 +36,7 @@ body
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(106, 113, 224);
 }
+
 .icon-bar {
     position: fixed;
     left: -250px;
@@ -142,7 +145,6 @@ body
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 2vw;
 }
 .navelement
 {
@@ -161,9 +163,10 @@ body
 .navlinks
 {
     display: grid;
-    grid-template-columns:repeat(5, 8vw);
+    grid-template-columns:repeat(2, 8vw);
     justify-content: center;
     align-items: center;
+    font-size: 15px;
     
 }
 .navicons
@@ -391,6 +394,9 @@ tr:hover {
     }
 #assHide{
     display: none;}
+.mobile{
+    display: none;
+}
 @media only screen and (max-width: 1024px)
 {
     body {
@@ -428,7 +434,7 @@ tr:hover {
         color: white;
     }
     .navlinks {
-        grid-template-columns: repeat(5, 10vw);
+        grid-template-columns: repeat(3, 10vw);
     }
     .active
     {
@@ -445,6 +451,10 @@ tr:hover {
     body
 {
     width:90vw ;
+}
+
+.mobile{
+    display: block;
 }
     label #btn {
         display: block;

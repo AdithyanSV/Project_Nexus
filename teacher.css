@@ -6,7 +6,7 @@
  }
 html{
     scroll-behavior: smooth;
-    width: 99svw;
+    width: 100svw;
 }
 body
 {
@@ -62,7 +62,7 @@ body
 .navlinks
 {
     display: grid;
-    grid-template-columns:repeat(5, 8vw);
+    grid-template-columns:repeat(2, 8vw);
     justify-content: center;
     align-items: center;
     font-size: 15px;
