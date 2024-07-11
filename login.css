@@ -15,16 +15,21 @@ background-color: black;
 color: white;
 }
 .sidebar {
-  width: 250px;
-  height: 100vh;
-  background-color: blueviolet;
-  color: #fff;
-  padding: 50px;
+    width: 14vw;
+    height: 87.5vh;
+    background-color: blueviolet;
+    color: #fff;
+    margin-top: 2.5svh;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
-
 .sidebar h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: rgb(29, 18, 29);
+  text-align: center;
+  font-size: 40px;
 }
 
 .sidebar ul {
@@ -37,10 +42,13 @@ color: white;
 }
 
 .sidebar ul li a {
-  color: #fff;
+  color: #3a1835;
   text-decoration: none;
   display: block;
   padding: 10px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 24px;
   transition: background-color 0.3s;
 }
 
